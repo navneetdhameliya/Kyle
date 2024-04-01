@@ -54,7 +54,7 @@ class ConstantTheme{
 
       colorScheme: const ColorScheme.dark().copyWith(
         background: Colors.black, //primarySurface
-        primary: ColorConstants.blackText, //primaryText
+        primary: ColorConstants.white, //primaryText
         secondary: ColorConstants.grey, //secondaryText
         surface: ColorConstants.blackAlt, //surfaceAlt
         onPrimary: ColorConstants.white, //iconPrimary
