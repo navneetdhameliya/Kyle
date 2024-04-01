@@ -1,0 +1,16 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="36" height="36" rx="10" fill="url(#paint0_angular_135_6760)"/>
+    <path d="M14.4885 17.1198L14.1329 17.6176L14.4885 18.1425V17.1198Z" fill="white"/>
+    <path d="M24.5983 9H20.2877L14.4885 17.1198V18.1425L16.4368 21.019L20.4534 20.7284L18.2516 17.5664L17.6658 18.3569V16.7252L18.2516 17.5664L24.5983 9Z" fill="white"/>
+    <path d="M17.6658 16.7252V18.3569L18.2516 17.5664L17.6658 16.7252Z" fill="white"/>
+    <path d="M14.4885 9H11V21.4124L14.4885 21.16V18.1425L14.1329 17.6176L14.4885 17.1198V9Z" fill="white"/>
+    <path d="M21.3782 27H24.8205L22.5201 23.6964L21.3782 27Z" fill="white"/>
+    <path d="M20.4877 27H21.3782L22.5201 23.6964L20.4534 20.7284L16.4368 21.019L20.4877 27Z" fill="white"/>
+    <path d="M14.4885 27H11V21.4124L14.4885 21.16V27Z" fill="white"/>
+    <defs>
+        <radialGradient id="paint0_angular_135_6760" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18 18) rotate(-68.6907) scale(75.6736)">
+            <stop offset="0.120932" stop-color="#F3D743"/>
+            <stop offset="0.58628" stop-color="#8F6ED5"/>
+        </radialGradient>
+    </defs>
+</svg>
