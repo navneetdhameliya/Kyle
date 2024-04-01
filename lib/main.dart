@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kayle/Infrastructure/Commons/app_pages.dart';
-import 'package:kayle/Infrastructure/Commons/route_constants.dart';
+import 'package:kayle/Infrastructure/Constants/app_pages.dart';
+import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/Infrastructure/Constants/theme_constant.dart';
 import 'package:kayle/Infrastructure/Language/translation_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,10 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 SharedPreferences? preferences;
 
 void main() {
-
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -33,4 +31,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

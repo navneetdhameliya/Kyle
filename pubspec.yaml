@@ -1,0 +1,62 @@
+name: kayle
+description: A new Flutter project.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  get: ^4.6.6
+  shared_preferences: ^2.2.2
+  flutter_svg: ^2.0.10+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/svgs/
+    - assets/image/
+
+
+  fonts:
+    - family: Blinker
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-Black.ttf
+
+    - family: BlinkerBold
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-Bold.ttf
+
+    - family: BlinkerExtraBold
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-ExtraBold.ttf
+
+    - family: BlinkerExtraLight
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-ExtraLight.ttf
+
+    - family: BlinkerRegular
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-Regular.ttf
+
+    - family: BlinkerSemiBold
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-SemiBold.ttf
+
+    - family: BlinkerThin
+      fonts:
+        - asset: assets/fonts/Blinker/Blinker-Thin.ttf

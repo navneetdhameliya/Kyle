@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:kayle/Infrastructure/Commons/route_constants.dart';
+import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/onboarding_binding.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/onboarding_screen.dart';
 import 'package:kayle/UI/Screens/SplashSection/splash_binding.dart';

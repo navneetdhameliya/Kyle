@@ -25,8 +25,8 @@ class SplashScreen extends GetView<SplashController> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(MediaQuery.of(context).platformBrightness == Brightness.dark
-                        ? ImageConstant.splashImageDark
-                        : ImageConstant.splashImageLight),
+                        ? ImageConstants.splashImageDark
+                        : ImageConstants.splashImageLight),
                     fit: BoxFit.fill),
               ),
               child: HeadlineBodyOneBaseWidget(
