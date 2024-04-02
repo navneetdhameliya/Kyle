@@ -89,7 +89,7 @@ class _SecondOnBoardingState extends State<SecondOnBoarding>
                 title: AppConstants.onBoardingSecondTitle.tr,
                 fontSize: 50,
                 fontFamily: FontConstant.blinkerRegular,
-                titleColor: ThemeColors.primaryText(context),
+                titleColor: ThemeColors.primary(context),
               ),
 
               const SizedBox(

@@ -15,9 +15,30 @@ class AppConstants {
   static String  agreeWith="agreeWith";
   static String  termsPrivacy="termsPrivacy";
   static String  eCom="eCom";
-
   static String  onBoardingFirstTitle="onBoardingFirstTitle";
   static String  onBoardingSecondTitle="onBoardingSecondTitle";
   static String  onBoardingThirdTitle="onBoardingThirdTitle";
   static String  onBoardingFourthTitle="onBoardingFourthTitle";
+  static String  setUpProfile="setUpProfile";
+  static String  choseYourImage="choseYourImage";
+  static String  fullName="fullName";
+  static String  dob="dob";
+  static String  region="region";
+  static String  gender="gender";
+  static String  passwordRecovery="passwordRecovery";
+  static String  enterEmailRecover="enterEmailRecover";
+  static String  useAnotherMethod="useAnotherMethod";
+  static String  enterPhoneToRecover="enterPhoneToRecover";
+  static String  verificationCode="verificationCode";
+  static String  verificationCodeSent="verificationCodeSent";
+  static String  changePhoneNumber="changePhoneNumber";
+  static String  resend="resend";
+  static String  confirm="confirm";
+  static String  setNewPassword="setNewPassword";
+  static String  setNewPasswordDesc="setNewPasswordDesc";
+  static String  confirmPassword="confirmPassword";
+  static String  changePassword="changePassword";
+  static String  skip="skip";
+  static String  goToShopping="goToShopping";
+
 }

@@ -5,8 +5,10 @@ import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
+import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/Infrastructure/Constants/text_style_constant.dart';
 import 'package:kayle/UI/Commons/common_button.dart';
+import 'package:kayle/UI/Commons/common_inkwell.dart';
 import 'package:kayle/UI/Commons/common_text_field.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
 
@@ -18,11 +20,11 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
         init: LoginController(),
-        key: KeyConstant.loginKey,
+        id: KeyConstant.loginKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,
-            backgroundColor: ThemeColors.primarySurface(context),
+            backgroundColor: ThemeColors.background(context),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,13 +57,18 @@ class LoginScreen extends GetView<LoginController> {
                         const SizedBox(height: 14),
                         Align(
                           alignment: AlignmentDirectional.topEnd,
-                          child: HeadlineBodyOneBaseWidget(
-                            title: AppConstants.forgotPassword.tr,
-                            style: TextStyleConstant.commonStyle(
-                              context: context,
-                              color: ColorConstants.commonYellow,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
+                          child: CommonInkWell(
+                            onTap: () {
+                              Get.toNamed(RoutesConstants.forgotPasswordScreen);
+                            },
+                            child: HeadlineBodyOneBaseWidget(
+                              title: AppConstants.forgotPassword.tr,
+                              style: TextStyleConstant.commonStyle(
+                                context: context,
+                                color: ColorConstants.commonYellow,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
@@ -71,7 +78,10 @@ class LoginScreen extends GetView<LoginController> {
                             Expanded(
                               child: CommonButton(
                                 title: AppConstants.signUp.tr,
-                                onTap: () {},
+                                onTap: () {
+
+                                  Get.toNamed(RoutesConstants.createAccountScreen);
+                                },
                               ),
                             ),
                             const SizedBox(width: 11),
@@ -90,7 +100,7 @@ class LoginScreen extends GetView<LoginController> {
                           children: [
                             Expanded(
                               child: Container(
-                                color: ThemeColors.lineColor(context),
+                                color: ThemeColors.onSecondary(context),
                                 height: 1,
                                 width: double.infinity,
                               ),
@@ -98,11 +108,11 @@ class LoginScreen extends GetView<LoginController> {
                             HeadlineBodyOneBaseWidget(
                               title: AppConstants.orSignInWith.tr,
                               style: TextStyleConstant.commonStyle(
-                                  context: context, fontWeight: FontWeight.w400, color: ThemeColors.primaryText(context), fontSize: 12),
+                                  context: context, fontWeight: FontWeight.w400, color: ThemeColors.primary(context), fontSize: 12),
                             ).marginSymmetric(horizontal: 19),
                             Expanded(
                               child: Container(
-                                color: ThemeColors.lineColor(context),
+                                color: ThemeColors.onSecondary(context),
                                 height: 1,
                                 width: double.infinity,
                               ),

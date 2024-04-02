@@ -32,7 +32,7 @@ commonTextField(
     decoration: BoxDecoration(
         boxShadow: MediaQuery.of(context).platformBrightness == Brightness.dark
             ? []
-            : [BoxShadow(color: ThemeColors.primaryText(context).withOpacity(0.1), blurRadius: 25, offset: const Offset(0, 4), spreadRadius: 1)]),
+            : [BoxShadow(color: ThemeColors.primary(context).withOpacity(0.1), blurRadius: 25, offset: const Offset(0, 4), spreadRadius: 1)]),
     child: TextFormField(
       validator: validator,
       keyboardType: textInputType ?? TextInputType.text,
@@ -55,7 +55,7 @@ commonTextField(
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           filled: true,
-          fillColor: ThemeColors.whiteTextField(context),
+          fillColor: ThemeColors.inversePrimary(context),
           errorStyle: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14, color: Colors.redAccent),
           focusedBorder: showBorder ? (showOnFocusBorder ? enabledBorder(context) : customBorder(context)) : InputBorder.none,
           enabledBorder: showBorder ? (customBorder(context)) : InputBorder.none,
@@ -64,7 +64,7 @@ commonTextField(
           contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           hintText: hint,
           hintStyle:
-              TextStyleConstant.commonStyle(color: ThemeColors.secondaryText(context), fontSize: 14, fontWeight: FontWeight.w300, context: context)),
+              TextStyleConstant.commonStyle(color: ThemeColors.secondary(context), fontSize: 14, fontWeight: FontWeight.w300, context: context)),
       focusNode: focusNode,
     ),
   );

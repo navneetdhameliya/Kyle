@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/app_constants.dart';
@@ -43,19 +44,17 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
         // mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: DelayedDisplay(
-              slideIn: false,
-              fadingDuration: const Duration(milliseconds: 750),
-              delay: const Duration(milliseconds: 50),
-              slidingBeginOffset: const Offset(0, 1),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  widget.fileUrl,
-                  fit: BoxFit.cover,
-                ),
+          DelayedDisplay(
+            slideIn: false,
+            fadingDuration: const Duration(milliseconds: 750),
+            delay: const Duration(milliseconds: 50),
+            slidingBeginOffset: const Offset(0, 1),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Image.asset(
+                widget.fileUrl,
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -68,10 +67,13 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
                   slideDuration: const Duration(milliseconds: 750),
                   delay: const Duration(milliseconds: 50),
                   slidingBeginOffset: const Offset(0, .2),
-                  child: Image.asset(
-                    ImageConstants.onboardingFourBG,
-                    fit: BoxFit.contain,
-                  ).paddingOnly(top: 4),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Image.asset(
+                      ImageConstants.onboardingFourBG,
+                      fit: BoxFit.fill,
+                    ).paddingOnly(top: 4),
+                  ),
                 ),
               ),
               HeadlineBodyOneBaseWidget(
@@ -87,7 +89,7 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
                 title: AppConstants.onBoardingFourthTitle.tr,
                 fontSize: 50,
                 fontFamily: FontConstant.blinkerRegular,
-                titleColor: ThemeColors.primaryText(context),
+                titleColor: ThemeColors.primary(context),
               ),
 
               const SizedBox(
@@ -98,7 +100,7 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
                 fontSize: 14,
                 fontFamily: FontConstant.blinkerRegular,
-                titleColor: ThemeColors.primaryText(context).withOpacity(.6),
+                titleColor: ThemeColors.primary(context).withOpacity(.6),
               ),
               const SizedBox(
                 height: 26,

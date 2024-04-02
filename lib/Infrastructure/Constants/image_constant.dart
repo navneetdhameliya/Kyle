@@ -9,8 +9,11 @@ class ImageConstants {
  static String onboardingOneBG = "assets/image/on_boarding_one_bg.png";
  static String onboardingTwoBG = "assets/image/on_boarding_two_bg.png";
  static String loginGirlImg = "assets/image/login_girl_img.png";
+ static String registerGirlImg = "assets/image/register_girl_img.png";
  static String onboardingOThreeBG = "assets/image/on_boarding_three_bg.png";
  static String onboardingFourBG = "assets/image/on_boarding_four_bg.png";
+ static String setupProfileShadow = "assets/image/setup_profile_shadow.png";
+ static String passwordRecoveryGirl = "assets/image/password_recovery_girl.png";
 
 
  //svgs
@@ -21,5 +24,14 @@ class ImageConstants {
  static String phone = "assets/svgs/phone.svg";
  static String hidePassword = "assets/svgs/hide_password.svg";
  static String google = "assets/svgs/google.svg";
+ static String backButton = "assets/svgs/back_button.svg";
+ static String fullName = "assets/svgs/fullname.svg";
+ static String dob = "assets/svgs/dob.svg";
+ static String region = "assets/svgs/region.svg";
+ static String gender = "assets/svgs/gender.svg";
+ static String edit = "assets/svgs/edit.svg";
+ static String camera = "assets/svgs/camera.svg";
+
+
 
 }

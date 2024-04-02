@@ -14,10 +14,10 @@ class SplashScreen extends GetView<SplashController> {
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
         init: SplashController(),
-        key: KeyConstant.splashKey,
+        id: KeyConstant.splashKey,
         builder: (controller) {
           return Scaffold(
-            backgroundColor: ThemeColors.primarySurface(context),
+            backgroundColor: ThemeColors.background(context),
             body: Container(
               width: double.infinity,
               height: double.infinity,
@@ -32,7 +32,7 @@ class SplashScreen extends GetView<SplashController> {
               child: HeadlineBodyOneBaseWidget(
                 title: AppConstants.ecommerceStore.tr,
                 fontSize: 12,
-                titleColor: ThemeColors.primaryText(context),
+                titleColor: ThemeColors.primary(context),
               ).marginOnly(bottom: 25),
             ),
           );

@@ -43,19 +43,17 @@ class _ThirdOnBoardingState extends State<ThirdOnBoarding> with SingleTickerProv
         // mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: DelayedDisplay(
-              slideIn: false,
-              fadingDuration: const Duration(milliseconds: 750),
-              delay: const Duration(milliseconds: 50),
-              slidingBeginOffset: const Offset(0, 1),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  widget.fileUrl,
-                  fit: BoxFit.cover,
-                ),
+          DelayedDisplay(
+            slideIn: false,
+            fadingDuration: const Duration(milliseconds: 750),
+            delay: const Duration(milliseconds: 50),
+            slidingBeginOffset: const Offset(0, 1),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Image.asset(
+                widget.fileUrl,
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -87,7 +85,7 @@ class _ThirdOnBoardingState extends State<ThirdOnBoarding> with SingleTickerProv
                 title: AppConstants.onBoardingThirdTitle.tr,
                 fontSize: 50,
                 fontFamily: FontConstant.blinkerRegular,
-                titleColor: ThemeColors.primaryText(context),
+                titleColor: ThemeColors.primary(context),
               ),
 
               const SizedBox(
@@ -98,7 +96,7 @@ class _ThirdOnBoardingState extends State<ThirdOnBoarding> with SingleTickerProv
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
                 fontSize: 14,
                 fontFamily: FontConstant.blinkerRegular,
-                titleColor: ThemeColors.primaryText(context).withOpacity(.6),
+                titleColor: ThemeColors.primary(context).withOpacity(.6),
               ),
               const SizedBox(
                 height: 26,

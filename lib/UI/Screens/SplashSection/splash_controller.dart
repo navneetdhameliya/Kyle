@@ -5,7 +5,6 @@ import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 
 class SplashController extends GetxController {
 
-  SplashController();
 
 
   moveToNext() async {
@@ -15,8 +14,8 @@ class SplashController extends GetxController {
     //
     //
     // } else {
-    //   Get.toNamed(RoutesConstants.onBoardingScreen);
-      Get.toNamed(RoutesConstants.loginScreen);
+    Get.toNamed(RoutesConstants.onBoardingScreen);
+    //  Get.toNamed(RoutesConstants.loginScreen);
     // }
   }
   @override

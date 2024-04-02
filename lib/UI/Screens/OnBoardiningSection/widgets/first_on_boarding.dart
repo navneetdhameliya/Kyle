@@ -77,7 +77,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
                   height: MediaQuery.sizeOf(context).height * .45,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: ThemeColors.primarySurface(context),
+                      color: ThemeColors.background(context),
                       borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(30),
                       ),
@@ -111,7 +111,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
           title: AppConstants.onBoardingFirstTitle.tr,
           fontSize: 50,
           fontFamily: FontConstant.blinkerRegular,
-          titleColor: ThemeColors.primaryText(context),
+          titleColor: ThemeColors.primary(context),
         ),
         const SizedBox(
           height: 16,
@@ -121,7 +121,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
           fontSize: 14,
           fontFamily: FontConstant.blinkerRegular,
-          titleColor: ThemeColors.primaryText(context).withOpacity(.6),
+          titleColor: ThemeColors.primary(context).withOpacity(.6),
         ),
         const Expanded(
             child: SizedBox(

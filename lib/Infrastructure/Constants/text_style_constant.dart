@@ -9,7 +9,7 @@ class TextStyleConstant  {
 
     return GoogleFonts.blinker(
         textStyle: TextStyle( fontSize:fontSize?? 32,
-        color:color?? ThemeColors.primaryText(context),
+        color:color?? ThemeColors.primary(context),
     fontWeight:fontWeight?? FontWeight.w300));
   }
 

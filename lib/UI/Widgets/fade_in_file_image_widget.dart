@@ -33,8 +33,7 @@ class DelayedDisplay extends StatefulWidget {
   createState() => _DelayedDisplayState();
 }
 
-class _DelayedDisplayState extends State<DelayedDisplay>
-    with TickerProviderStateMixin {
+class _DelayedDisplayState extends State<DelayedDisplay> with TickerProviderStateMixin {
   late AnimationController _opacityController;
   late AnimationController _slideController;
 
@@ -108,19 +107,21 @@ class _DelayedDisplayState extends State<DelayedDisplay>
 
   @override
   Widget build(BuildContext context) {
-    return fadeIn?FadeTransition(
-      opacity: _opacityController,
-      child: slideIn
-          ? SlideTransition(
-              position: _slideAnimationOffset,
-              child: widget.child,
-            )
-          : widget.child,
-    ):slideIn
-        ? SlideTransition(
-      position: _slideAnimationOffset,
-      child: widget.child,
-    )
-        : widget.child;
+    return fadeIn
+        ? FadeTransition(
+            opacity: _opacityController,
+            child: slideIn
+                ? SlideTransition(
+                    position: _slideAnimationOffset,
+                    child: widget.child,
+                  )
+                : widget.child,
+          )
+        : slideIn
+            ? SlideTransition(
+                position: _slideAnimationOffset,
+                child: widget.child,
+              )
+            : widget.child;
   }
 }

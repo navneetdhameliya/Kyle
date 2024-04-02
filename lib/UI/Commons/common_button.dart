@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/text_style_constant.dart';
+import 'package:kayle/UI/Commons/common_inkwell.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
 
 class CommonButton extends StatelessWidget {
@@ -35,14 +36,17 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return CommonInkWell(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: loader == true ? 8 : 12, horizontal: 12),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          border: Border.all(color: borderColor ?? Colors.transparent, width: 1.5),
-          color: buttonColor ?? ThemeColors.whiteTextField(context),
+            boxShadow: MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? []
+                : [BoxShadow(color: ThemeColors.primary(context).withOpacity(0.1), blurRadius: 25, offset: const Offset(0, 4), spreadRadius: 1)],
+        border: Border.all(color: borderColor ?? Colors.transparent, width: 1.5),
+          color: buttonColor ?? ThemeColors.inversePrimary(context),
           borderRadius: BorderRadius.circular(radius ?? 25),
         ),
         child: loader ?? false
@@ -71,7 +75,7 @@ class CommonButton extends StatelessWidget {
                       style: TextStyleConstant.commonStyle(
                           context: context,
                           fontSize: fontSize ?? 14,
-                          color: titleColor ?? ThemeColors.primaryText(context),
+                          color: titleColor ?? ThemeColors.primary(context),
                           fontWeight: FontWeight.w400),
                     ),
                   ),

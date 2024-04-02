@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
+import 'package:kayle/Infrastructure/Constants/route_constants.dart';
+import 'package:kayle/UI/Commons/common_inkwell.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/fourth_on_boarding.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/third_on_boarding.dart';
@@ -22,13 +24,14 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
         key: KeyConstant.onboardingKey,
         builder: (controller) {
           return Scaffold(
-            backgroundColor: ThemeColors.primarySurface(context),
+            backgroundColor: ThemeColors.background(context),
             body: SizedBox(
               height: MediaQuery.sizeOf(context).height,
               width: MediaQuery.sizeOf(context).width,
               child: Stack(
                 children: [
                   PageView(
+
                     controller: controller.introController.value,
                     onPageChanged: controller.onPageChanged,
                     children: [
@@ -45,7 +48,7 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                   /// Skip or Continue Button
                   Align(
                     alignment: Alignment.bottomRight,
-                    child: InkWell(
+                    child: CommonInkWell(
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 26),
                         decoration: BoxDecoration(
@@ -61,7 +64,14 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                         ),
                       ),
                       onTap: () {
-                        // controller.getIntroData();
+                        if(controller.initialIndex.value==3){
+                        Get.toNamed(RoutesConstants.loginScreen);
+                        }else{
+
+                        controller.initialIndex.value=controller.initialIndex.value+1;
+                        controller.update([KeyConstant.onboardingKey]);
+                         controller.introController.value.animateToPage(controller.initialIndex.value, duration: const Duration(milliseconds: 600), curve: Curves.easeIn);
+                        }
                       },
                     ).paddingAll(20),
                   ),
@@ -108,8 +118,8 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                   ThemeColors.buttonActive,
                   ThemeColors.buttonActive,
                 ]:[
-                  ThemeColors.primaryText(context),
-                  ThemeColors.primaryText(context),
+                  ThemeColors.primary(context),
+                  ThemeColors.primary(context),
                 ]
                     : [
                   const Color(0xffBDBDBD),
@@ -134,8 +144,8 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                   ThemeColors.buttonActive,
                   ThemeColors.buttonActive,
                 ]:[
-                  ThemeColors.primaryText(context),
-                  ThemeColors.primaryText(context),
+                  ThemeColors.primary(context),
+                  ThemeColors.primary(context),
                 ]
                     : [
                   const Color(0xffBDBDBD),
@@ -166,8 +176,8 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                   ThemeColors.buttonActive,
                   ThemeColors.buttonActive,
                 ]:[
-                  ThemeColors.primaryText(context),
-                  ThemeColors.primaryText(context),
+                  ThemeColors.primary(context),
+                  ThemeColors.primary(context),
                 ]
                     : [
                   const Color(0xffBDBDBD),
@@ -198,8 +208,8 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                   ThemeColors.buttonActive,
                   ThemeColors.buttonActive,
                 ]:[
-                  ThemeColors.primaryText(context),
-                  ThemeColors.primaryText(context),
+                  ThemeColors.primary(context),
+                  ThemeColors.primary(context),
                 ]
                     : [
                   const Color(0xffBDBDBD),

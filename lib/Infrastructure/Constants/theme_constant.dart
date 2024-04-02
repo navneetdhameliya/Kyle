@@ -14,18 +14,19 @@ class ConstantTheme{
         },
       ),
       colorScheme: const ColorScheme.light().copyWith(
-        background: ColorConstants.whiteBg, //primarySurface
         primary: ColorConstants.black, //primaryText
+        background: ColorConstants.whiteBg, //primarySurface
         secondary: ColorConstants.whiteSecondary, //secondaryText
-        surface: ColorConstants.greyLight, //surfaceAlt
         onSecondary: ColorConstants.blackSecondary, // line color
         inversePrimary: ColorConstants.white,
-        onPrimary: ColorConstants.grey, //iconPrimary
-        primaryContainer: ColorConstants.whiteSecondary, //iconInActive
-        onPrimaryContainer: ColorConstants.grey4, //border
+        onBackground: ColorConstants.blackBg
+        // surface: ColorConstants.greyLight, //surfaceAlt
+        // onPrimary: ColorConstants.grey, //iconPrimary
+        // primaryContainer: ColorConstants.whiteSecondary, //iconInActive
+        // onPrimaryContainer: ColorConstants.grey4, //border
       ),
       dialogTheme: const DialogTheme(
-        // backgroundColor: ColorConstants.white,
+         backgroundColor: ColorConstants.blackBg,
 
       ),
       bottomSheetTheme: const BottomSheetThemeData(
@@ -55,19 +56,20 @@ class ConstantTheme{
       ),
 
       colorScheme: const ColorScheme.dark().copyWith(
-        background: ColorConstants.blackBg, //primarySurface
         primary: ColorConstants.white, //primaryText
-        onSecondary: ColorConstants.whiteSecondary, // line color
         secondary: ColorConstants.blackSecondary, //secondaryText
-        surface: ColorConstants.blackAlt, //surfaceAlt
-        onPrimary: ColorConstants.white, //iconPrimary
-        primaryContainer: ColorConstants.white, //iconInActive
+        background: ColorConstants.blackBg, //primarySurface
+        onSecondary: ColorConstants.whiteSecondary, // line color
         inversePrimary: ColorConstants.black2a2a,
-        onPrimaryContainer: ColorConstants.greyAlt, //border
+          onBackground: ColorConstants.whiteBg
+        // surface: ColorConstants.blackAlt, //surfaceAlt
+        // onPrimary: ColorConstants.white, //iconPrimary
+        // primaryContainer: ColorConstants.white, //iconInActive
+        // onPrimaryContainer: ColorConstants.greyAlt, //border
       ),
 
       dialogTheme: const DialogTheme(
-        backgroundColor: ColorConstants.blackAlt,
+        backgroundColor: ColorConstants.whiteBg,
       ),
       // appBarTheme: const AppBarTheme(
       //   systemOverlayStyle: SystemUiOverlayStyle(
