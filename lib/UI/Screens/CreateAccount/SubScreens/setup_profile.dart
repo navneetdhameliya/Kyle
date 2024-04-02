@@ -63,7 +63,6 @@ class SetupProfileScreen extends GetView<CreateAccountController> {
                                           alignment: Alignment.center,
                                           padding: const EdgeInsets.all(26),
                                           decoration: BoxDecoration(
-
                                               shape: BoxShape.circle,
                                               boxShadow: [
                                                 BoxShadow(
