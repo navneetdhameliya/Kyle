@@ -20,6 +20,7 @@ class ColorConstants {
   static const Color green = Color(0xff00B012);
   static const Color red = Color(0xffDD0000);
   static const Color yellow = Color(0xffEA9803);
+  static const Color yellow43 = Color(0xffF3D743);
   static const Color greyLight = Color(0xFFF3F6FE);//Color(0xffF9F9FF);//F9F9FF//F1F1FF
   static const Color grey4 = Color(0xFFECECFF);//Color(0xffDFDFFF);
   static const Color pink = Color(0xffDB00FF);//Color(0xFF5F6989)
@@ -38,8 +39,8 @@ class ThemeColors {
   static Color emotionNegative = ColorConstants.red;
   static Color emotionNeutral = ColorConstants.yellow;
   static Color iconActive = ColorConstants.blue;
-  static Color buttonActive = ColorConstants.blue;
-  static Color buttonText = ColorConstants.white;
+  static Color buttonActive = ColorConstants.yellow43;
+  static Color buttonText = ColorConstants.black;
   // static Color iconPrimary(BuildContext context) => isDark ? ColorConstants.white : ColorConstants.grey;
   static Color iconPrimary(BuildContext context) => Theme.of(context).colorScheme.onPrimary;
   // static Color iconInActive = isDark ? ColorConstants.white : ColorConstants.grey5;

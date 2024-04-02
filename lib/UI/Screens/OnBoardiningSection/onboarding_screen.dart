@@ -1,12 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
-import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/click_and_share_page.dart';
-import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/create_creative_post_page.dart';
-import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/customize_your_post_page.dart';
+import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/fourth_on_boarding.dart';
+import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/third_on_boarding.dart';
+import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/first_on_boarding.dart';
+import 'package:kayle/UI/Screens/OnBoardiningSection/widgets/second_on_boarding.dart';
 
 import 'onboarding_controller.dart';
 
@@ -22,11 +24,13 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
           return Scaffold(
             backgroundColor: ThemeColors.primarySurface(context),
             body: SizedBox(
-              width: MediaQuery.sizeOf(context).height,
-              height: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
+              width: MediaQuery.sizeOf(context).width,
               child: Stack(
                 children: [
                   PageView(
+                    controller: controller.introController.value,
+                    onPageChanged: controller.onPageChanged,
                     children: [
                       FirstOnBoarding(
                           fileUrl: controller.onBoardingFirstImage.value),
@@ -34,20 +38,27 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                           fileUrl: controller.onBoardingSecondImage.value),
                       ThirdOnBoarding(
                           fileUrl: controller.onBoardingThirdImage.value),
+                      FourthOnBoarding(
+                          fileUrl: controller.onBoardingFourthImage.value),
                     ],
                   ),
                   /// Skip or Continue Button
                   Align(
-                    alignment: Alignment.topRight,
+                    alignment: Alignment.bottomRight,
                     child: InkWell(
-                      child: HeadlineBodyOneBaseWidget(
-                        title: controller.initialIndex.value == 0 ||
-                            controller.initialIndex.value == 1
-                            ? AppConstants.next
-                            : AppConstants.getStarted,
-                        fontSize: 14.0,
-                        titleTextAlign: TextAlign.center,
-                        titleColor: Colors.white,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 26),
+                        decoration: BoxDecoration(
+                          color: ThemeColors.buttonActive,
+                          borderRadius: BorderRadius.circular(50) ,
+                        ),
+                        child: HeadlineBodyOneBaseWidget(
+                          title:
+                          AppConstants.getStarted.tr,
+                          fontSize: 14.0,
+                          titleTextAlign: TextAlign.center,
+                          titleColor: ThemeColors.buttonText,
+                        ),
                       ),
                       onTap: () {
                         // controller.getIntroData();
@@ -57,22 +68,15 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
 
                   /// Indicator
                   Align(
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.bottomLeft,
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: 70,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20.0,
-                          vertical: 8.0,
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            getIndicators(),
-                          ],
-                        ),
+                        child: getIndicators(context),
                       ),
                     ),
                   ),
@@ -82,50 +86,60 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
           );
         });
   }
-  getIndicators() {
+  getIndicators(context) {
+    double height = 4;
+    double width = 8;
+    double space = 10;
+    double expandedWidth = 30;
     return Row(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         AnimatedContainer(
           duration: const Duration(milliseconds: 250),
-          width: controller.initialIndex.value == 0 ? 24 : 10,
-          height: 10.0,
+          width: controller.initialIndex.value == 0 ? expandedWidth : width,
+          height: height,
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 0
-                    ? [
-                  const Color(0xff0F0F0F).withOpacity(.2),
-                  const Color(0xff0F0F0F).withOpacity(.2)
+                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
+                  ThemeColors.buttonActive,
+                  ThemeColors.buttonActive,
+                ]:[
+                  ThemeColors.primaryText(context),
+                  ThemeColors.primaryText(context),
                 ]
                     : [
-                  const Color(0xffBDBDBD).withOpacity(.2),
-                  const Color(0xffBDBDBD).withOpacity(.2)
+                  const Color(0xffBDBDBD),
+                  const Color(0xffBDBDBD),
                 ]),
             borderRadius: BorderRadius.circular(50),
           ),
         ),
-        const SizedBox(
-          width: 6,
+         SizedBox(
+          width: space,
         ),
         AnimatedContainer(
           duration: const Duration(milliseconds: 250),
-          width: controller.initialIndex.value == 1 ? 24 : 10,
-          height: 10,
+          width: controller.initialIndex.value == 1 ? expandedWidth : width,
+          height: height,
           decoration: ShapeDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 1
-                    ? [
-                  const Color(0xff0F0F0F).withOpacity(.2),
-                  const Color(0xff0F0F0F).withOpacity(.2)
+                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
+                  ThemeColors.buttonActive,
+                  ThemeColors.buttonActive,
+                ]:[
+                  ThemeColors.primaryText(context),
+                  ThemeColors.primaryText(context),
                 ]
                     : [
-                  const Color(0xffBDBDBD).withOpacity(.2),
-                  const Color(0xffBDBDBD).withOpacity(.2)
+                  const Color(0xffBDBDBD),
+                  const Color(0xffBDBDBD),
                 ]),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
@@ -136,25 +150,60 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
             ),
           ),
         ),
-        const SizedBox(
-          width: 6,
+         SizedBox(
+          width: space,
         ),
         AnimatedContainer(
           duration: const Duration(milliseconds: 250),
-          width: controller.initialIndex.value == 2 ? 24 : 10,
-          height: 10.0,
+          width: controller.initialIndex.value == 2 ? expandedWidth : width,
+          height: height,
           decoration: ShapeDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 2
-                    ? [
-                  const Color(0xff0F0F0F).withOpacity(.2),
-                  const Color(0xff0F0F0F).withOpacity(.2)
+                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
+                  ThemeColors.buttonActive,
+                  ThemeColors.buttonActive,
+                ]:[
+                  ThemeColors.primaryText(context),
+                  ThemeColors.primaryText(context),
                 ]
                     : [
-                  const Color(0xffBDBDBD).withOpacity(.2),
-                  const Color(0xffBDBDBD).withOpacity(.2)
+                  const Color(0xffBDBDBD),
+                  const Color(0xffBDBDBD),
+                ]),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  50.0,
+                ),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: space,
+        ),
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          width: controller.initialIndex.value == 3 ? expandedWidth : width,
+          height: height,
+          decoration: ShapeDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: controller.initialIndex.value == 3
+                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
+                  ThemeColors.buttonActive,
+                  ThemeColors.buttonActive,
+                ]:[
+                  ThemeColors.primaryText(context),
+                  ThemeColors.primaryText(context),
+                ]
+                    : [
+                  const Color(0xffBDBDBD),
+                  const Color(0xffBDBDBD),
                 ]),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(

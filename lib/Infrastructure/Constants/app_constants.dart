@@ -14,4 +14,10 @@ class AppConstants {
   static String  phoneNumber="phoneNumber";
   static String  agreeWith="agreeWith";
   static String  termsPrivacy="termsPrivacy";
+  static String  eCom="eCom";
+
+  static String  onBoardingFirstTitle="onBoardingFirstTitle";
+  static String  onBoardingSecondTitle="onBoardingSecondTitle";
+  static String  onBoardingThirdTitle="onBoardingThirdTitle";
+  static String  onBoardingFourthTitle="onBoardingFourthTitle";
 }

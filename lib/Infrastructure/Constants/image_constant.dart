@@ -5,6 +5,9 @@ class ImageConstants {
  static String onboardingOne = "assets/image/onboarding_one.png";
  static String onboardingTwo = "assets/image/on_boarding_two.png";
  static String onboardingThree = "assets/image/on_boarding_three.png";
+ static String onboardingFour = "assets/image/on_boarding_four.png";
+ static String onboardingOneBG = "assets/image/on_boarding_one_bg.png";
+ static String onboardingTwoBG = "assets/image/on_boarding_two_bg.png";
  static String onboardingFour = "assets/image/on_boarding_four.jpg";
  static String loginGirlImg = "assets/image/login_girl_img.png";
 

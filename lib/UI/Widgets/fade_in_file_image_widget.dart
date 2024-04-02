@@ -8,6 +8,7 @@ class DelayedDisplay extends StatefulWidget {
   final Duration delay;
 
   final Duration fadingDuration;
+  final Duration slideDuration;
 
   final Curve slidingCurve;
 
@@ -21,6 +22,7 @@ class DelayedDisplay extends StatefulWidget {
     required this.child,
     this.delay = Duration.zero,
     this.fadingDuration = const Duration(milliseconds: 300),
+    this.slideDuration = const Duration(milliseconds: 300),
     this.slidingCurve = Curves.decelerate,
     this.slidingBeginOffset = const Offset(0.0, 0.35),
     this.fadeIn = true,
@@ -34,6 +36,7 @@ class DelayedDisplay extends StatefulWidget {
 class _DelayedDisplayState extends State<DelayedDisplay>
     with TickerProviderStateMixin {
   late AnimationController _opacityController;
+  late AnimationController _slideController;
 
   late Animation<Offset> _slideAnimationOffset;
 
@@ -42,6 +45,7 @@ class _DelayedDisplayState extends State<DelayedDisplay>
   Duration get delay => widget.delay;
 
   Duration get opacityTransitionDuration => widget.fadingDuration;
+  Duration get slideTransitionDuration => widget.slideDuration;
 
   Curve get slidingCurve => widget.slidingCurve;
 
@@ -60,9 +64,14 @@ class _DelayedDisplayState extends State<DelayedDisplay>
       duration: opacityTransitionDuration,
     );
 
+    _slideController = AnimationController(
+      vsync: this,
+      duration: slideTransitionDuration,
+    );
+
     final CurvedAnimation curvedAnimation = CurvedAnimation(
       curve: slidingCurve,
-      parent: _opacityController,
+      parent: _slideController,
     );
 
     _slideAnimationOffset = Tween<Offset>(
@@ -76,6 +85,7 @@ class _DelayedDisplayState extends State<DelayedDisplay>
   @override
   void dispose() {
     _opacityController.dispose();
+    _slideController.dispose();
     _timer?.cancel();
     super.dispose();
   }
@@ -92,12 +102,13 @@ class _DelayedDisplayState extends State<DelayedDisplay>
   void _runFadeAnimation() {
     _timer = Timer(delay, () {
       fadeIn ? _opacityController.forward() : _opacityController.reverse();
+      slideIn ? _slideController.forward() : _slideController.reverse();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
+    return fadeIn?FadeTransition(
       opacity: _opacityController,
       child: slideIn
           ? SlideTransition(
@@ -105,6 +116,11 @@ class _DelayedDisplayState extends State<DelayedDisplay>
               child: widget.child,
             )
           : widget.child,
-    );
+    ):slideIn
+        ? SlideTransition(
+      position: _slideAnimationOffset,
+      child: widget.child,
+    )
+        : widget.child;
   }
 }
