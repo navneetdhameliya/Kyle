@@ -50,14 +50,20 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
         // mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: MediaQuery.sizeOf(context).height * .7,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.fileUrl),
-                  fit: BoxFit.cover,
-                )),
+          DelayedDisplay(
+            slideIn: false,
+            fadingDuration: const Duration(milliseconds: 750),
+            delay: const Duration(milliseconds: 50),
+            slidingBeginOffset: const Offset(0, 1),
+            child: Container(
+              height: MediaQuery.sizeOf(context).height * .7,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(widget.fileUrl),
+                    fit: BoxFit.cover,
+                  )),
+            ),
           ),
           DelayedDisplay(
             slideIn: true,

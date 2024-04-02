@@ -8,8 +8,9 @@ class ImageConstants {
  static String onboardingFour = "assets/image/on_boarding_four.png";
  static String onboardingOneBG = "assets/image/on_boarding_one_bg.png";
  static String onboardingTwoBG = "assets/image/on_boarding_two_bg.png";
- static String onboardingFour = "assets/image/on_boarding_four.jpg";
  static String loginGirlImg = "assets/image/login_girl_img.png";
+ static String onboardingOThreeBG = "assets/image/on_boarding_three_bg.png";
+ static String onboardingFourBG = "assets/image/on_boarding_four_bg.png";
 
 
  //svgs
