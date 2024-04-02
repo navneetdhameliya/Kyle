@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kayle/Infrastructure/Constants/app_constants.dart';
+import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/font_constant.dart';
+import 'package:kayle/Infrastructure/Constants/image_constant.dart';
+import 'package:kayle/UI/Commons/common_text_widget.dart';
 import 'package:kayle/UI/Widgets/fade_in_file_image_widget.dart';
 
 class ThirdOnBoarding extends StatefulWidget {
@@ -34,9 +39,9 @@ class _ThirdOnBoardingState extends State<ThirdOnBoarding> with SingleTickerProv
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Stack(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: DelayedDisplay(
@@ -54,6 +59,52 @@ class _ThirdOnBoardingState extends State<ThirdOnBoarding> with SingleTickerProv
               ),
             ),
           ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: DelayedDisplay(
+                  slideIn: true,
+                  slideDuration: const Duration(milliseconds: 750),
+                  delay: const Duration(milliseconds: 50),
+                  slidingBeginOffset: const Offset(0, .2),
+                  child: Image.asset(
+                    ImageConstants.onboardingOThreeBG,
+                    fit: BoxFit.contain,
+                  ).paddingOnly(top: 4),
+                ),
+              ),
+              HeadlineBodyOneBaseWidget(
+                title: AppConstants.eCom.tr,
+                fontSize: 14,
+                fontFamily: FontConstant.blinkerRegular,
+                titleColor: const Color(0xffBDBDBD),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              HeadlineBodyOneBaseWidget(
+                title: AppConstants.onBoardingThirdTitle.tr,
+                fontSize: 50,
+                fontFamily: FontConstant.blinkerRegular,
+                titleColor: ThemeColors.primaryText(context),
+              ),
+
+              const SizedBox(
+                height: 16,
+              ),
+              HeadlineBodyOneBaseWidget(
+                title:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+                fontSize: 14,
+                fontFamily: FontConstant.blinkerRegular,
+                titleColor: ThemeColors.primaryText(context).withOpacity(.6),
+              ),
+              const SizedBox(
+                height: 26,
+              ),
+            ],
+          ).paddingSymmetric(horizontal: 24,vertical: 48),
         ],
       ),
     );
