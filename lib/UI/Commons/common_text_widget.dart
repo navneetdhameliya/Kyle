@@ -16,7 +16,7 @@ class HeadlineBodyOneBaseWidget extends StatelessWidget {
     this.foreground,
     this.fontFamily,
     this.underline = false,
-    this.letterSpacing,
+    this.letterSpacing, this.style,
   }) : super(key: key);
 
   final String? title;
@@ -31,12 +31,13 @@ class HeadlineBodyOneBaseWidget extends StatelessWidget {
   final String? fontFamily;
   final bool underline;
   final double? letterSpacing;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title ?? '',
-      style: Theme
+      style:style?? Theme
           .of(context)
           .textTheme
           .bodyLarge!

@@ -29,7 +29,7 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                   PageView(
                     children: [
                       FirstOnBoarding(
-                          fileUrl: controller.onBoardingFirstImage.value,),
+                          fileUrl: controller.onBoardingFirstImage.value),
                       SecondOnBoarding(
                           fileUrl: controller.onBoardingSecondImage.value),
                       ThirdOnBoarding(

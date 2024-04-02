@@ -14,12 +14,14 @@ class ConstantTheme{
         },
       ),
       colorScheme: const ColorScheme.light().copyWith(
-        background: Colors.white, //primarySurface
+        background: ColorConstants.whiteBg, //primarySurface
         primary: ColorConstants.black, //primaryText
-        secondary: ColorConstants.grey5, //secondaryText
+        secondary: ColorConstants.whiteSecondary, //secondaryText
         surface: ColorConstants.greyLight, //surfaceAlt
+        onSecondary: ColorConstants.blackSecondary, // line color
+        inversePrimary: ColorConstants.white,
         onPrimary: ColorConstants.grey, //iconPrimary
-        primaryContainer: ColorConstants.grey5, //iconInActive
+        primaryContainer: ColorConstants.whiteSecondary, //iconInActive
         onPrimaryContainer: ColorConstants.grey4, //border
       ),
       dialogTheme: const DialogTheme(
@@ -53,14 +55,17 @@ class ConstantTheme{
       ),
 
       colorScheme: const ColorScheme.dark().copyWith(
-        background: Colors.black, //primarySurface
-        primary: ColorConstants.blackText, //primaryText
-        secondary: ColorConstants.grey, //secondaryText
+        background: ColorConstants.blackBg, //primarySurface
+        primary: ColorConstants.white, //primaryText
+        onSecondary: ColorConstants.whiteSecondary, // line color
+        secondary: ColorConstants.blackSecondary, //secondaryText
         surface: ColorConstants.blackAlt, //surfaceAlt
         onPrimary: ColorConstants.white, //iconPrimary
         primaryContainer: ColorConstants.white, //iconInActive
+        inversePrimary: ColorConstants.black2a2a,
         onPrimaryContainer: ColorConstants.greyAlt, //border
       ),
+
       dialogTheme: const DialogTheme(
         backgroundColor: ColorConstants.blackAlt,
       ),

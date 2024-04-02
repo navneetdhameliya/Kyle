@@ -15,7 +15,8 @@ class SplashController extends GetxController {
     //
     //
     // } else {
-      Get.toNamed(RoutesConstants.onBoardingScreen);
+    //   Get.toNamed(RoutesConstants.onBoardingScreen);
+      Get.toNamed(RoutesConstants.loginScreen);
     // }
   }
   @override
