@@ -14,6 +14,10 @@ class ImageConstants {
  static String onboardingFourBG = "assets/image/on_boarding_four_bg.png";
  static String setupProfileShadow = "assets/image/setup_profile_shadow.png";
  static String passwordRecoveryGirl = "assets/image/password_recovery_girl.png";
+ static String verifyOtpBg = "assets/image/verify_otp_bg.png";
+ static String setNewPwdImg = "assets/image/set_new_pwd_img.png";
+ static String whiteLogoPng = "assets/image/white_logo.png";
+ static String coloredLogoPng = "assets/image/colored_logo.png";
 
 
  //svgs

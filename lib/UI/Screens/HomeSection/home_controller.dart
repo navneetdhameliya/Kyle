@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
 
-class LoginController extends GetxController {
+class HomeController extends GetxController {
   bool enableResend = false;
   int secondsRemaining = 60;
   Timer? timer;
@@ -16,6 +16,18 @@ class LoginController extends GetxController {
   RxString countryCode =  "".obs;
   Rx<TextEditingController> txtConfirmEmailOtp = TextEditingController().obs;
 
+  RxInt currentPage = 0.obs;
+  final PageController pageController = PageController();
+
+  animateToPage(int page, {withAnimation = false}) {
+    currentPage.value = page;
+    update();
+    pageController.animateToPage(
+      page,
+      duration: Duration(milliseconds: withAnimation ? 250 : 1),
+      curve: Curves.easeIn,
+    );
+  }
 
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -38,5 +50,25 @@ class LoginController extends GetxController {
     enableResend = true;
     update([KeyConstant.verifyOtpKey]);
     startTimer();
+  }
+}
+class CommonWrapper extends StatefulWidget {
+  const CommonWrapper({super.key, required this.child});
+
+  final Widget child;
+
+  @override
+  State<CommonWrapper> createState() => _CommonWrapperState();
+}
+
+class _CommonWrapperState extends State<CommonWrapper> with AutomaticKeepAliveClientMixin{
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return widget.child;
   }
 }

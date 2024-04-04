@@ -65,9 +65,8 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                       ),
                       onTap: () {
                         if(controller.initialIndex.value==3){
-                        Get.toNamed(RoutesConstants.loginScreen);
+                        Get.offAllNamed(RoutesConstants.loginScreen);
                         }else{
-
                         controller.initialIndex.value=controller.initialIndex.value+1;
                         controller.update([KeyConstant.onboardingKey]);
                          controller.introController.value.animateToPage(controller.initialIndex.value, duration: const Duration(milliseconds: 600), curve: Curves.easeIn);

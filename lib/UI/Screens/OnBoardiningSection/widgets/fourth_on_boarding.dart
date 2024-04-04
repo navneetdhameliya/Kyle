@@ -6,7 +6,7 @@ import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
-import 'package:kayle/UI/Widgets/fade_in_file_image_widget.dart';
+import 'package:kayle/UI/Commons/fade_in_file_image_widget.dart';
 
 class FourthOnBoarding extends StatefulWidget {
   final String fileUrl;
@@ -49,13 +49,19 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
             fadingDuration: const Duration(milliseconds: 750),
             delay: const Duration(milliseconds: 50),
             slidingBeginOffset: const Offset(0, 1),
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset(
-                widget.fileUrl,
-                fit: BoxFit.cover,
-              ),
+            child: Stack(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    widget.fileUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(top: 13, left: 25, child: SafeArea(child: Image.asset(ImageConstants.coloredLogoPng,width: 36,height: 36,)))
+
+              ],
             ),
           ),
           Column(

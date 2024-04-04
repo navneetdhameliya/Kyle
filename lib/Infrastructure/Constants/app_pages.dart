@@ -3,7 +3,10 @@ import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/UI/Screens/CreateAccount/SubScreens/setup_profile.dart';
 import 'package:kayle/UI/Screens/CreateAccount/creaet_account_screen.dart';
 import 'package:kayle/UI/Screens/CreateAccount/create_account_binding.dart';
-import 'package:kayle/UI/Screens/LoginSection/SubScreens/forgot_password.dart';
+import 'package:kayle/UI/Screens/LoginSection/SubScreens/forgot_password_one.dart';
+import 'package:kayle/UI/Screens/LoginSection/SubScreens/forgot_password_two.dart';
+import 'package:kayle/UI/Screens/LoginSection/SubScreens/set_new_password.dart';
+import 'package:kayle/UI/Screens/LoginSection/SubScreens/verify_otp_screen.dart';
 import 'package:kayle/UI/Screens/LoginSection/login_binding.dart';
 import 'package:kayle/UI/Screens/LoginSection/login_screen.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/onboarding_binding.dart';
@@ -39,7 +42,19 @@ class AppPages {
       binding: CreateAccountBinding(),
     ),GetPage(
       name: RoutesConstants.forgotPasswordScreen,
-      page: () => const ForgotPassword(),
+      page: () => const ForgotPasswordOne(),
+      binding: LoginBinding(),
+    ),GetPage(
+      name: RoutesConstants.forgotPasswordTwoScreen,
+      page: () => const ForgotPasswordTwo(),
+      binding: LoginBinding(),
+    ),GetPage(
+      name: RoutesConstants.verifyOtpScreen,
+      page: () => const VerifyOtpScreen(),
+      binding: LoginBinding(),
+    ),GetPage(
+      name: RoutesConstants.setNewPasswordScreen,
+      page: () => const SetNewPasswordScreen(),
       binding: LoginBinding(),
     ),
   ];

@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
-import 'package:kayle/UI/Widgets/fade_in_file_image_widget.dart';
+import 'package:kayle/UI/Commons/fade_in_file_image_widget.dart';
 
 class FirstOnBoarding extends StatefulWidget {
   final String fileUrl;
@@ -20,8 +22,7 @@ class FirstOnBoarding extends StatefulWidget {
   State<FirstOnBoarding> createState() => _FirstOnBoardingState();
 }
 
-class _FirstOnBoardingState extends State<FirstOnBoarding>
-    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _FirstOnBoardingState extends State<FirstOnBoarding> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late AnimationController _controller;
 
   @override
@@ -55,14 +56,19 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
             fadingDuration: const Duration(milliseconds: 750),
             delay: const Duration(milliseconds: 50),
             slidingBeginOffset: const Offset(0, 1),
-            child: Container(
-              height: MediaQuery.sizeOf(context).height * .7,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
+            child: Stack(
+              children: [
+                Container(
+                  height: MediaQuery.sizeOf(context).height * .7,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
                     image: AssetImage(widget.fileUrl),
                     fit: BoxFit.cover,
                   )),
+                ),
+                Positioned(top: 13, left: 25, child: SafeArea(child: SvgPicture.asset(ImageConstants.whiteLogo,width: 36,height: 36)))
+              ],
             ),
           ),
           DelayedDisplay(
@@ -81,8 +87,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
                       borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(30),
                       ),
-                      image: DecorationImage(
-                          image: AssetImage(ImageConstants.onboardingOneBG),fit: BoxFit.cover)),
+                      image: DecorationImage(image: AssetImage(ImageConstants.onboardingOneBG), fit: BoxFit.cover)),
                   padding: const EdgeInsets.all(24),
                   child: text(),
                 ),
@@ -117,8 +122,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding>
           height: 16,
         ),
         HeadlineBodyOneBaseWidget(
-          title:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+          title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
           fontSize: 14,
           fontFamily: FontConstant.blinkerRegular,
           titleColor: ThemeColors.primary(context).withOpacity(.6),

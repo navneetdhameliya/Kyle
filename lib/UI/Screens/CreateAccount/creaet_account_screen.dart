@@ -49,6 +49,7 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
                             )),
                         const SizedBox(height: 12),
                         IntlPhoneField(
+                          controller: controller.txtPhoneController.value,
                           style: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14),
                           decoration: InputDecoration(
                               errorBorder: customBorder(context),
