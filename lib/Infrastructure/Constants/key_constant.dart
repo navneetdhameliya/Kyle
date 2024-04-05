@@ -10,4 +10,7 @@ class KeyConstant{
   static  Key forgotPasswordTwoKey = const Key('forgotPasswordTwo');
   static  Key createAccountKey = const Key('createAccount');
   static  Key setUpAccountKey = const Key('setUpAccount');
+  static  Key homeKey = const Key('home');
+  static  Key cartKey = const Key('cart');
+  static  Key profileKey = const Key('profile');
 }

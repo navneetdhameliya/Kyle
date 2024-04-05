@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
@@ -16,7 +15,7 @@ class CommonButton extends StatelessWidget {
     this.loader,
     this.borderColor,
     this.icon,
-    this.iconColor,
+    this.iconColor = Colors.black,
     this.fontSize,
     this.radius,
     this.secondIcon,
@@ -64,7 +63,7 @@ class CommonButton extends StatelessWidget {
                   if (icon != null) ...[
                     SvgPicture.asset(
                       icon!,
-                      color: iconColor,
+                      colorFilter: ColorFilter.mode(iconColor!, BlendMode.srcIn),
                     ),
                     const SizedBox(width: 13),
                   ],

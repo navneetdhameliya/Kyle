@@ -21,9 +21,7 @@ class NavCustomPainter extends CustomPainter {
     final span = 1.0 / itemsLength;
     final l = startingLoc + (span - s) / 2;
     loc = textDirection == TextDirection.rtl ? 0.8 - l : l;
-    bottom = hasLabel
-        ? (Platform.isAndroid ? 0.55 : 0.45)
-        : (Platform.isAndroid ? 0.6 : 0.5);
+    bottom = (Platform.isAndroid ? 0.6 : 0.5);
   }
 
   @override
@@ -34,21 +32,21 @@ class NavCustomPainter extends CustomPainter {
 
     final path = Path()
       ..moveTo(0, 0)
-      ..lineTo(size.width * (loc - 0.05), 0)
+      ..lineTo(size.width * (loc - 0.08), 0)
       ..cubicTo(
         size.width * (loc + s * 0.2), // topX
-        size.height * 0.05, // topY
-        size.width * loc, // bottomX
-        size.height * bottom, // bottomY
-        size.width * (loc + s * 0.5), // centerX
-        size.height * bottom, // centerY
+        size.height * 0.15, // topY
+        size.width * loc -5, // bottomX
+        size.height * bottom +5, // bottomY
+        size.width * (loc + s * .5), // centerX
+        size.height * bottom + 7, // centerY
       )
       ..cubicTo(
-        size.width * (loc + s), // bottomX
-        size.height * bottom, // bottomY
+        size.width * (loc + s + .02), // bottomX
+        size.height * bottom + 4, // bottomY
         size.width * (loc + s * 0.8), // topX
         size.height * 0.05, // topY
-        size.width * (loc + s + 0.05),
+        size.width * (loc + s + 0.09),
         0,
       )
       ..lineTo(size.width, 0)

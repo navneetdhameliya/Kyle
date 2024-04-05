@@ -15,6 +15,7 @@ import 'package:kayle/UI/Commons/common_inkwell.dart';
 import 'package:kayle/UI/Commons/common_text_field.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
 import 'package:kayle/UI/Screens/CreateAccount/create_account_controller.dart';
+import 'package:kayle/UI/Screens/MainSection/main_screen.dart';
 
 class SetupProfileScreen extends GetView<CreateAccountController> {
   const SetupProfileScreen({Key? key}) : super(key: key);
@@ -178,7 +179,7 @@ class SetupProfileScreen extends GetView<CreateAccountController> {
                         child: CommonButton(
                           title: AppConstants.skip.tr,
                           onTap: () {
-                            Get.back();
+                            Get.to(const MainScreen());
                           },
                         ),
                       ),

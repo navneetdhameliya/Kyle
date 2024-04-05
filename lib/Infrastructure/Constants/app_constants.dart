@@ -41,4 +41,12 @@ class AppConstants {
   static String  skip="skip";
   static String  goToShopping="goToShopping";
 
+  static String  newArrival="newArrival";
+  static String  bestSeller="bestSeller";
+  static String  pendingOffers="pendingOffers";
+  static String  discountCode="discountCode";
+  static String  summerCollection="summerCollection";
+  static String  fashionStore="fashionStore";
+  static String  fashion="fashion";
+
 }

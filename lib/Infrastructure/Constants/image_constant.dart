@@ -18,6 +18,10 @@ class ImageConstants {
  static String setNewPwdImg = "assets/image/set_new_pwd_img.png";
  static String whiteLogoPng = "assets/image/white_logo.png";
  static String coloredLogoPng = "assets/image/colored_logo.png";
+ static String womenPng = "assets/image/women.png";
+ static String menPng = "assets/image/men.png";
+ static String linesPng = "assets/image/lines.png";
+ static String summerCollectionPng = "assets/image/summer_collection.png";
 
 
  //svgs
@@ -35,7 +39,17 @@ class ImageConstants {
  static String gender = "assets/svgs/gender.svg";
  static String edit = "assets/svgs/edit.svg";
  static String camera = "assets/svgs/camera.svg";
+ static String notificationIcon = "assets/svgs/notification_icon.svg";
+ static String searchIcon = "assets/svgs/search_icon.svg";
+ static String threeDotesHorizontal = "assets/svgs/three_dotes_horizontal.svg";
+ static String rightArrowIcon = "assets/svgs/right_arrow_icon.svg";
 
-
+ static String homeIcon = "assets/svgs/home_icon.svg";
+ static String basketIcon = "assets/svgs/basket_icon.svg";
+ static String personIcon = "assets/svgs/person_icon.svg";
+ static String saveMarkIcon = "assets/svgs/saved_mark_icon.svg";
+ static String scanIcon = "assets/svgs/scan_icon.svg";
+ static String walletIcon = "assets/svgs/wallet_icon.svg";
+ static String discountIcon = "assets/svgs/discount_icon.svg";
 
 }

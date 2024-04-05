@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       enableLog: false,
       getPages: AppPages.routes,
-      // home: HomeScreen(),
+      // home: const MainScreen(),
       initialRoute: RoutesConstants.splashScreen,
       darkTheme: ConstantTheme.darkTheme,
       theme: ConstantTheme.lightTheme,

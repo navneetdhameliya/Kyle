@@ -78,7 +78,6 @@ class ForgotPasswordTwo extends StatelessWidget {
                           onChanged: (phone) {
                             controller.countryCode.value = "${phone.countryCode} ${phone.number}";
                             controller.update([KeyConstant.forgotPasswordTwoKey]);
-                             print(phone.completeNumber);
                           },
                         ),
                         const SizedBox(height: 18),

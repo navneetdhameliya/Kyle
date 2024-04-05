@@ -9,6 +9,7 @@ class ColorConstants {
   static const Color blackSecondary = Color(0xFFBDBDBD);
   static const Color whiteSecondary = Color(0xFF717171);
   static const Color commonYellow = Color(0xFFF3D743);
+  static const Color commonPurple = Color(0xFF8F6ED4);
   static const Color whiteF9f8 = Color(0xFFfaf6ec);
   static const Color whiteF5e = Color(0xFFf5ebc3);
 
@@ -38,4 +39,6 @@ class ThemeColors {
   static Color buttonActive = ColorConstants.commonYellow;
   static Color buttonText = ColorConstants.black;
   static Color inversePrimary(BuildContext context) => Theme.of(context).colorScheme.inversePrimary;
+  static Color inverseSurface(BuildContext context) => Theme.of(context).colorScheme.inverseSurface;
+  static Color shadow(BuildContext context) => Theme.of(context).colorScheme.shadow;
 }

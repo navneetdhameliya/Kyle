@@ -52,7 +52,6 @@ class NavBarItemWidget extends StatelessWidget {
         const SizedBox(height: 4.0),
         if(selected)
         Container(
-          alignment: Alignment.center,
           height: 6,
           width:  6,
           decoration: BoxDecoration(
@@ -60,7 +59,7 @@ class NavBarItemWidget extends StatelessWidget {
             shape: BoxShape.circle,
           ),
         ),
-        SizedBox(height: Platform.isIOS ? 20.0 : 10.0),
+        SizedBox(height: Platform.isIOS ? 20.0 : 0.0),
       ],
     );
   }

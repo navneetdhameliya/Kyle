@@ -39,7 +39,15 @@ const Map<String, String> en = {
   "confirmPassword":"Confirm Password",
   "changePassword":"Change Password",
   "skip":"Skip",
-  "goToShopping":"Go To Shopping"
+  "goToShopping":"Go To Shopping",
+
+  "newArrival":"New Arrival",
+  "bestSeller":"Best Seller",
+  "pendingOffers":"Pending\nOffers",
+  "discountCode":"Discount\nCode",
+  "summerCollection":"SUMMER COLLECTION",
+  "fashionStore":"FASHION STORE",
+  "fashion":"Fashion",
 
 
 

@@ -6,6 +6,7 @@ typedef OnCodeEnteredCompletion = void Function(String value);
 typedef OnCodeChanged = void Function(String value);
 typedef HandleControllers = void Function(List<TextEditingController?> controllers);
 
+// ignore: must_be_immutable
 class OtpTextField extends StatefulWidget {
   final bool showCursor;
   final int numberOfFields;
@@ -74,7 +75,7 @@ class OtpTextField extends StatefulWidget {
         assert(styles.isNotEmpty ? styles.length == numberOfFields : styles.isEmpty);
 
   @override
-  _OtpTextFieldState createState() => _OtpTextFieldState();
+  createState() => _OtpTextFieldState();
 }
 
 class _OtpTextFieldState extends State<OtpTextField> {

@@ -19,7 +19,9 @@ class ConstantTheme{
         secondary: ColorConstants.whiteSecondary, //secondaryText
         onSecondary: ColorConstants.blackSecondary, // line color
         inversePrimary: ColorConstants.white,
-        onBackground: ColorConstants.blackBg
+        onBackground: ColorConstants.blackBg,
+        inverseSurface: ColorConstants.whiteBg,
+          shadow: const Color(0xffA69426),
         // surface: ColorConstants.greyLight, //surfaceAlt
         // onPrimary: ColorConstants.grey, //iconPrimary
         // primaryContainer: ColorConstants.whiteSecondary, //iconInActive
@@ -57,11 +59,13 @@ class ConstantTheme{
 
       colorScheme: const ColorScheme.dark().copyWith(
         primary: ColorConstants.white, //primaryText
-        secondary: ColorConstants.blackSecondary, //secondaryText
         background: ColorConstants.blackBg, //primarySurface
+        secondary: ColorConstants.blackSecondary, //secondaryText
         onSecondary: ColorConstants.whiteSecondary, // line color
         inversePrimary: ColorConstants.black2a2a,
-          onBackground: ColorConstants.whiteBg
+        onBackground: ColorConstants.whiteBg,
+          inverseSurface: ColorConstants.blackBg,
+        shadow: ColorConstants.blackBg.withOpacity(.2),
         // surface: ColorConstants.blackAlt, //surfaceAlt
         // onPrimary: ColorConstants.white, //iconPrimary
         // primaryContainer: ColorConstants.white, //iconInActive
