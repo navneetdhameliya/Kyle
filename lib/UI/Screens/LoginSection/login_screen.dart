@@ -16,6 +16,7 @@ import 'login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
@@ -29,14 +30,20 @@ class LoginScreen extends GetView<LoginController> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(ImageConstants.loginGirlImg, height: MediaQuery.of(context).size.height / 2.1, width: double.infinity, fit: BoxFit.fill),
+                Image.asset(ImageConstants.loginGirlImg,
+                    height: MediaQuery.of(context).size.height / 2.1,
+                    width: double.infinity,
+                    fit: BoxFit.fill),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        HeadlineBodyOneBaseWidget(title: AppConstants.welcomeBack.tr, style: TextStyleConstant.commonStyle(context: context)),
+                        HeadlineBodyOneBaseWidget(
+                            title: AppConstants.welcomeBack.tr,
+                            style: TextStyleConstant.commonStyle(
+                                context: context)),
                         const SizedBox(height: 25),
                         commonTextField(
                             context: context,
@@ -50,7 +57,8 @@ class LoginScreen extends GetView<LoginController> {
                             context: context,
                             controller: controller.txtPasswordController.value,
                             hint: AppConstants.password.tr,
-                            suffixIcon: SvgPicture.asset(ImageConstants.hidePassword),
+                            suffixIcon:
+                                SvgPicture.asset(ImageConstants.hidePassword),
                             prefixIcon: SvgPicture.asset(
                               ImageConstants.password,
                             )),
@@ -79,8 +87,8 @@ class LoginScreen extends GetView<LoginController> {
                               child: CommonButton(
                                 title: AppConstants.signUp.tr,
                                 onTap: () {
-
-                                  Get.toNamed(RoutesConstants.createAccountScreen);
+                                  Get.toNamed(
+                                      RoutesConstants.createAccountScreen);
                                 },
                               ),
                             ),
@@ -108,7 +116,10 @@ class LoginScreen extends GetView<LoginController> {
                             HeadlineBodyOneBaseWidget(
                               title: AppConstants.orSignInWith.tr,
                               style: TextStyleConstant.commonStyle(
-                                  context: context, fontWeight: FontWeight.w400, color: ThemeColors.primary(context), fontSize: 12),
+                                  context: context,
+                                  fontWeight: FontWeight.w400,
+                                  color: ThemeColors.primary(context),
+                                  fontSize: 12),
                             ).marginSymmetric(horizontal: 19),
                             Expanded(
                               child: Container(

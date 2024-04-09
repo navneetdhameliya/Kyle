@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
@@ -26,7 +27,7 @@ class WishListScreen extends GetView<WishListController> {
               width: MediaQuery.sizeOf(context).width,
               child: ListView(
                 children: [
-                  appBar(),
+                  appBar(context),
                   const SizedBox(
                     height: 48,
                   ),
@@ -55,7 +56,7 @@ class WishListScreen extends GetView<WishListController> {
         });
   }
 
-  Widget appBar() {
+  Widget appBar(context) {
     return Row(
       children: [
         SizedBox(
@@ -69,6 +70,8 @@ class WishListScreen extends GetView<WishListController> {
               ImageConstants.searchIcon,
               width: 24,
               height: 24,
+              colorFilter: ColorFilter.mode(
+                  ThemeColors.primary(context), BlendMode.srcIn),
             ),
             const SizedBox(
               width: 12,
@@ -81,6 +84,8 @@ class WishListScreen extends GetView<WishListController> {
                 ImageConstants.notificationIcon,
                 width: 24,
                 height: 24,
+                colorFilter: ColorFilter.mode(
+                    ThemeColors.primary(context), BlendMode.srcIn),
               ),
             ),
           ],
@@ -131,6 +136,8 @@ class WishListScreen extends GetView<WishListController> {
                         ImageConstants.saveMarkIcon,
                         height: 20,
                         width: 20,
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
                       ),
                     ),
                   ),
@@ -155,8 +162,8 @@ class WishListScreen extends GetView<WishListController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         HeadlineBodyOneBaseWidget(
-                          title: "Fashion",
-                          titleColor: Colors.black.withOpacity(.4),
+                          title: AppConstants.fashion.tr,
+                          titleColor: ThemeColors.onSecondary(context),
                         ),
                         const HeadlineBodyOneBaseWidget(
                           title: "Linen slim-fit t-shirt",
@@ -243,7 +250,8 @@ class WishListScreen extends GetView<WishListController> {
                 border: Border.all(color: Colors.grey),
               ),
               padding: const EdgeInsets.all(6),
-              child: SvgPicture.string('<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M7.87048 3.98096C7.87048 7.32222 8.35144 8.83255 5.11652 8.83255C1.88119 8.83255 2.37206 7.32222 2.37206 3.98096" stroke="#717171" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.48547 2.69971H1.7561" stroke="#717171" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.54787 2.69991C6.54787 2.69991 6.76812 1.13086 5.12049 1.13086C3.47328 1.13086 3.69352 2.69991 3.69352 2.69991" stroke="#717171" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+              child: SvgPicture.string(
+                '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M7.87048 3.98096C7.87048 7.32222 8.35144 8.83255 5.11652 8.83255C1.88119 8.83255 2.37206 7.32222 2.37206 3.98096" stroke="#717171" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.48547 2.69971H1.7561" stroke="#717171" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.54787 2.69991C6.54787 2.69991 6.76812 1.13086 5.12049 1.13086C3.47328 1.13086 3.69352 2.69991 3.69352 2.69991" stroke="#717171" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
                 height: 16,
               ),
             ),

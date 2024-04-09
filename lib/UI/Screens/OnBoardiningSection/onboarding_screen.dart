@@ -30,7 +30,6 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
               child: Stack(
                 children: [
                   PageView(
-
                     controller: controller.introController.value,
                     onPageChanged: controller.onPageChanged,
                     children: [
@@ -44,31 +43,36 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                           fileUrl: controller.onBoardingFourthImage.value),
                     ],
                   ),
+
                   /// Skip or Continue Button
                   Align(
                     alignment: Alignment.bottomRight,
                     child: CommonInkWell(
                       child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 26),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 26),
                         decoration: BoxDecoration(
                           color: ThemeColors.buttonActive,
-                          borderRadius: BorderRadius.circular(50) ,
+                          borderRadius: BorderRadius.circular(50),
                         ),
                         child: HeadlineBodyOneBaseWidget(
-                          title:
-                          AppConstants.getStarted.tr,
+                          title: AppConstants.getStarted.tr,
                           fontSize: 14.0,
                           titleTextAlign: TextAlign.center,
                           titleColor: ThemeColors.buttonText,
                         ),
                       ),
                       onTap: () {
-                        if(controller.initialIndex.value==3){
-                        Get.offAllNamed(RoutesConstants.loginScreen);
-                        }else{
-                        controller.initialIndex.value=controller.initialIndex.value+1;
-                        controller.update([KeyConstant.onboardingKey]);
-                         controller.introController.value.animateToPage(controller.initialIndex.value, duration: const Duration(milliseconds: 600), curve: Curves.easeIn);
+                        if (controller.initialIndex.value == 3) {
+                          Get.offAllNamed(RoutesConstants.loginScreen);
+                        } else {
+                          controller.initialIndex.value =
+                              controller.initialIndex.value + 1;
+                          controller.update([KeyConstant.onboardingKey]);
+                          controller.introController.value.animateToPage(
+                              controller.initialIndex.value,
+                              duration: const Duration(milliseconds: 600),
+                              curve: Curves.easeIn);
                         }
                       },
                     ).paddingAll(20),
@@ -94,6 +98,7 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
           );
         });
   }
+
   getIndicators(context) {
     double height = 4;
     double width = 8;
@@ -112,21 +117,24 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 0
-                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
-                  ThemeColors.buttonActive,
-                  ThemeColors.buttonActive,
-                ]:[
-                  ThemeColors.primary(context),
-                  ThemeColors.primary(context),
-                ]
+                    ? MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? [
+                            ThemeColors.buttonActive,
+                            ThemeColors.buttonActive,
+                          ]
+                        : [
+                            ThemeColors.primary(context),
+                            ThemeColors.primary(context),
+                          ]
                     : [
-                  const Color(0xffBDBDBD),
-                  const Color(0xffBDBDBD),
-                ]),
+                        const Color(0xffBDBDBD),
+                        const Color(0xffBDBDBD),
+                      ]),
             borderRadius: BorderRadius.circular(50),
           ),
         ),
-         SizedBox(
+        SizedBox(
           width: space,
         ),
         AnimatedContainer(
@@ -138,17 +146,20 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 1
-                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
-                  ThemeColors.buttonActive,
-                  ThemeColors.buttonActive,
-                ]:[
-                  ThemeColors.primary(context),
-                  ThemeColors.primary(context),
-                ]
+                    ? MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? [
+                            ThemeColors.buttonActive,
+                            ThemeColors.buttonActive,
+                          ]
+                        : [
+                            ThemeColors.primary(context),
+                            ThemeColors.primary(context),
+                          ]
                     : [
-                  const Color(0xffBDBDBD),
-                  const Color(0xffBDBDBD),
-                ]),
+                        const Color(0xffBDBDBD),
+                        const Color(0xffBDBDBD),
+                      ]),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(
@@ -158,7 +169,7 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
             ),
           ),
         ),
-         SizedBox(
+        SizedBox(
           width: space,
         ),
         AnimatedContainer(
@@ -170,17 +181,20 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 2
-                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
-                  ThemeColors.buttonActive,
-                  ThemeColors.buttonActive,
-                ]:[
-                  ThemeColors.primary(context),
-                  ThemeColors.primary(context),
-                ]
+                    ? MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? [
+                            ThemeColors.buttonActive,
+                            ThemeColors.buttonActive,
+                          ]
+                        : [
+                            ThemeColors.primary(context),
+                            ThemeColors.primary(context),
+                          ]
                     : [
-                  const Color(0xffBDBDBD),
-                  const Color(0xffBDBDBD),
-                ]),
+                        const Color(0xffBDBDBD),
+                        const Color(0xffBDBDBD),
+                      ]),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(
@@ -202,17 +216,20 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: controller.initialIndex.value == 3
-                    ? MediaQuery.of(context).platformBrightness == Brightness.dark?[
-                  ThemeColors.buttonActive,
-                  ThemeColors.buttonActive,
-                ]:[
-                  ThemeColors.primary(context),
-                  ThemeColors.primary(context),
-                ]
+                    ? MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? [
+                            ThemeColors.buttonActive,
+                            ThemeColors.buttonActive,
+                          ]
+                        : [
+                            ThemeColors.primary(context),
+                            ThemeColors.primary(context),
+                          ]
                     : [
-                  const Color(0xffBDBDBD),
-                  const Color(0xffBDBDBD),
-                ]),
+                        const Color(0xffBDBDBD),
+                        const Color(0xffBDBDBD),
+                      ]),
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(
@@ -225,5 +242,4 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
       ],
     );
   }
-
 }

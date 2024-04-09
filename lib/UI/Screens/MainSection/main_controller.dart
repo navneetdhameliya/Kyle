@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainController extends GetxController {
-
   RxInt currentPage = 0.obs;
   final PageController pageController = PageController();
 
@@ -15,8 +14,8 @@ class MainController extends GetxController {
       curve: Curves.easeIn,
     );
   }
-
 }
+
 class CommonWrapper extends StatefulWidget {
   const CommonWrapper({super.key, required this.child});
 
@@ -26,8 +25,8 @@ class CommonWrapper extends StatefulWidget {
   State<CommonWrapper> createState() => _CommonWrapperState();
 }
 
-class _CommonWrapperState extends State<CommonWrapper> with AutomaticKeepAliveClientMixin{
-
+class _CommonWrapperState extends State<CommonWrapper>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 

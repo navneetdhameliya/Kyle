@@ -22,7 +22,8 @@ class FirstOnBoarding extends StatefulWidget {
   State<FirstOnBoarding> createState() => _FirstOnBoardingState();
 }
 
-class _FirstOnBoardingState extends State<FirstOnBoarding> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _FirstOnBoardingState extends State<FirstOnBoarding>
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late AnimationController _controller;
 
   @override
@@ -67,7 +68,12 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> with SingleTickerProv
                     fit: BoxFit.cover,
                   )),
                 ),
-                Positioned(top: 13, left: 25, child: SafeArea(child: SvgPicture.asset(ImageConstants.whiteLogo,width: 36,height: 36)))
+                Positioned(
+                    top: 13,
+                    left: 25,
+                    child: SafeArea(
+                        child: SvgPicture.asset(ImageConstants.whiteLogo,
+                            width: 36, height: 36)))
               ],
             ),
           ),
@@ -87,7 +93,9 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> with SingleTickerProv
                       borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(30),
                       ),
-                      image: DecorationImage(image: AssetImage(ImageConstants.onboardingOneBG), fit: BoxFit.cover)),
+                      image: DecorationImage(
+                          image: AssetImage(ImageConstants.onboardingOneBG),
+                          fit: BoxFit.cover)),
                   padding: const EdgeInsets.all(24),
                   child: text(),
                 ),
@@ -122,7 +130,8 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> with SingleTickerProv
           height: 16,
         ),
         HeadlineBodyOneBaseWidget(
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+          title:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
           fontSize: 14,
           fontFamily: FontConstant.blinkerRegular,
           titleColor: ThemeColors.primary(context).withOpacity(.6),

@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 
-class TextStyleConstant  {
-
-
-  static commonStyle({required BuildContext context,double? fontSize,FontWeight ?fontWeight,Color ?color}){
-
+class TextStyleConstant {
+  static commonStyle(
+      {required BuildContext context,
+      double? fontSize,
+      FontWeight? fontWeight,
+      Color? color}) {
     return GoogleFonts.blinker(
-        textStyle: TextStyle( fontSize:fontSize?? 32,
-        color:color?? ThemeColors.primary(context),
-    fontWeight:fontWeight?? FontWeight.w300));
+        textStyle: TextStyle(
+            fontSize: fontSize ?? 32,
+            color: color ?? ThemeColors.primary(context),
+            fontWeight: fontWeight ?? FontWeight.w300));
   }
-
 }

@@ -29,7 +29,10 @@ class ForgotPasswordTwo extends StatelessWidget {
             backgroundColor: ThemeColors.background(context),
             body: Container(
               padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 25),
-              decoration: BoxDecoration(image: DecorationImage(image: AssetImage(ImageConstants.onboardingTwo), fit: BoxFit.fill)),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(ImageConstants.onboardingTwo),
+                      fit: BoxFit.fill)),
               width: double.infinity,
               height: double.infinity,
               child: SingleChildScrollView(
@@ -49,42 +52,58 @@ class ForgotPasswordTwo extends StatelessWidget {
                         const SizedBox(height: 20),
                         HeadlineBodyOneBaseWidget(
                           title: AppConstants.passwordRecovery.tr,
-                          style: TextStyleConstant.commonStyle(context: context),
+                          style:
+                              TextStyleConstant.commonStyle(context: context),
                         ),
                         HeadlineBodyOneBaseWidget(
                           title: AppConstants.enterPhoneToRecover.tr,
                           style: TextStyleConstant.commonStyle(
-                              context: context, color: ThemeColors.secondary(context), fontWeight: FontWeight.w400, fontSize: 14),
+                              context: context,
+                              color: ThemeColors.secondary(context),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
                         ),
                         const SizedBox(height: 28),
                         IntlPhoneField(
-                          controller:controller.txtPhoneRecoveryController.value ,
-                          style: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14),
+                          controller:
+                              controller.txtPhoneRecoveryController.value,
+                          style: TextStyleConstant.commonStyle(
+                              context: context,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
                           decoration: InputDecoration(
                               errorBorder: customBorder(context),
                               filled: true,
                               fillColor: ThemeColors.inversePrimary(context),
-                              errorStyle:
-                              TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14, color: Colors.redAccent),
+                              errorStyle: TextStyleConstant.commonStyle(
+                                  context: context,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Colors.redAccent),
                               focusedBorder: customBorder(context),
                               enabledBorder: customBorder(context),
                               disabledBorder: customBorder(context),
                               border: customBorder(context),
-                              contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 20),
                               hintText: AppConstants.phoneNumber.tr,
                               hintStyle: TextStyleConstant.commonStyle(
-                                  color: ThemeColors.secondary(context), fontSize: 14, fontWeight: FontWeight.w300, context: context)),
+                                  color: ThemeColors.secondary(context),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w300,
+                                  context: context)),
                           initialCountryCode: 'IN',
                           onChanged: (phone) {
-                            controller.countryCode.value = "${phone.countryCode} ${phone.number}";
-                            controller.update([KeyConstant.forgotPasswordTwoKey]);
+                            controller.countryCode.value =
+                                "${phone.countryCode} ${phone.number}";
+                            controller
+                                .update([KeyConstant.forgotPasswordTwoKey]);
                           },
                         ),
                         const SizedBox(height: 18),
                         CommonInkWell(
                           onTap: () {
                             Get.toNamed(RoutesConstants.forgotPasswordScreen);
-
                           },
                           child: HeadlineBodyOneBaseWidget(
                             title: AppConstants.useAnotherMethod.tr,

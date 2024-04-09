@@ -1,5 +1,3 @@
 import 'package:get/get.dart';
 
-class WishListController extends GetxController {
-
-}
+class WishListController extends GetxController {}

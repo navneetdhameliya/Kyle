@@ -5,11 +5,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferenceService {
   static SharedPreferenceService? _instance;
   static SharedPreferences? _preferences;
+
   static Future<SharedPreferenceService> getInstance() async {
     _instance ??= SharedPreferenceService();
     _preferences ??= await SharedPreferences.getInstance();
     return _instance!;
   }
+
   // General Methods: ----------------------------------------------------------
 
   static clearPreference() async {
@@ -62,9 +64,9 @@ class SharedPreferenceService {
   }
 
   //language
-  static Future<String?> get getLanguage async{
+  static Future<String?> get getLanguage async {
     await getInstance();
-    return  _preferences!.getString(StorageConstants.language);
+    return _preferences!.getString(StorageConstants.language);
   }
 
   static Future<void> saveLanguage(String lng) async {
@@ -73,9 +75,9 @@ class SharedPreferenceService {
   }
 
   //translate to language
-  static Future<String?> get getTranslateToLanguage async{
+  static Future<String?> get getTranslateToLanguage async {
     await getInstance();
-    return  _preferences!.getString(StorageConstants.translateToLanguage);
+    return _preferences!.getString(StorageConstants.translateToLanguage);
   }
 
   static Future<void> saveTranslateToLanguage(String lng) async {
@@ -84,9 +86,9 @@ class SharedPreferenceService {
   }
 
   //Device Language
-  static Future<bool?> get getDeviceLanguage async{
+  static Future<bool?> get getDeviceLanguage async {
     await getInstance();
-    return  _preferences!.getBool(StorageConstants.deviceLanguage);
+    return _preferences!.getBool(StorageConstants.deviceLanguage);
   }
 
   static Future<void> saveDeviceLanguage(bool lng) async {
@@ -95,15 +97,14 @@ class SharedPreferenceService {
   }
 
   //Translate To Device Language
-  static Future<bool?> get getTranslateDeviceLanguage async{
+  static Future<bool?> get getTranslateDeviceLanguage async {
     await getInstance();
-    return  _preferences!.getBool(StorageConstants.translateToDeviceLanguage);
+    return _preferences!.getBool(StorageConstants.translateToDeviceLanguage);
   }
 
   static Future<void> saveTranslateDeviceLanguage(bool lng) async {
     await getInstance();
-    await _preferences!.setBool(StorageConstants.translateToDeviceLanguage, lng);
+    await _preferences!
+        .setBool(StorageConstants.translateToDeviceLanguage, lng);
   }
-
-
 }

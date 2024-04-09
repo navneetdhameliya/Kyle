@@ -29,7 +29,10 @@ class ForgotPasswordOne extends StatelessWidget {
             backgroundColor: ThemeColors.background(context),
             body: Container(
               padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 25),
-              decoration: BoxDecoration(image: DecorationImage(image: AssetImage(ImageConstants.onboardingTwo), fit: BoxFit.fill)),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(ImageConstants.onboardingTwo),
+                      fit: BoxFit.fill)),
               width: double.infinity,
               height: double.infinity,
               child: SingleChildScrollView(
@@ -49,17 +52,22 @@ class ForgotPasswordOne extends StatelessWidget {
                         const SizedBox(height: 20),
                         HeadlineBodyOneBaseWidget(
                           title: AppConstants.passwordRecovery.tr,
-                          style: TextStyleConstant.commonStyle(context: context),
+                          style:
+                              TextStyleConstant.commonStyle(context: context),
                         ),
                         HeadlineBodyOneBaseWidget(
                           title: AppConstants.enterEmailRecover.tr,
                           style: TextStyleConstant.commonStyle(
-                              context: context, color: ThemeColors.secondary(context), fontWeight: FontWeight.w400, fontSize: 14),
+                              context: context,
+                              color: ThemeColors.secondary(context),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
                         ),
                         const SizedBox(height: 28),
                         commonTextField(
                             context: context,
-                            controller: controller.txtForgotEmailController.value,
+                            controller:
+                                controller.txtForgotEmailController.value,
                             hint: AppConstants.emailAddress.tr,
                             prefixIcon: SvgPicture.asset(
                               ImageConstants.email,
@@ -67,7 +75,8 @@ class ForgotPasswordOne extends StatelessWidget {
                         const SizedBox(height: 18),
                         CommonInkWell(
                           onTap: () {
-                            Get.toNamed(RoutesConstants.forgotPasswordTwoScreen);
+                            Get.toNamed(
+                                RoutesConstants.forgotPasswordTwoScreen);
                           },
                           child: HeadlineBodyOneBaseWidget(
                             title: AppConstants.useAnotherMethod.tr,

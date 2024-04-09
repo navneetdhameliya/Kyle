@@ -22,8 +22,11 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           onTap: () {
             Get.back();
           },
-          child: Container(margin: const EdgeInsets.only(left: 5), child: SvgPicture.asset(ImageConstants.backButton,
-          colorFilter: ColorFilter.mode(ThemeColors.primary(context), BlendMode.srcIn) ))),
+          child: Container(
+              margin: const EdgeInsets.only(left: 5),
+              child: SvgPicture.asset(ImageConstants.backButton,
+                  colorFilter: ColorFilter.mode(
+                      ThemeColors.primary(context), BlendMode.srcIn)))),
     );
   }
 

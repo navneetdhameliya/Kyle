@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
@@ -11,6 +12,7 @@ import 'package:kayle/UI/Screens/HomeSection/SubScreen/notification_screen.dart'
 
 class CartScreen extends GetView<CartController> {
   const CartScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartController>(
@@ -24,14 +26,17 @@ class CartScreen extends GetView<CartController> {
               width: MediaQuery.sizeOf(context).width,
               child: ListView(
                 children: [
-                  appBar(),
+                  appBar(context),
                   const SizedBox(
                     height: 48,
                   ),
-
                   Column(
                     children: [
-                      SvgPicture.string('<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.9803 31.9829L32.0068 47.9561" stroke="#0F0F0F" stroke-linecap="round" stroke-linejoin="round"/><path d="M47.9997 47.9769L31.9995 31.9771" stroke="#0F0F0F" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9.16667 40.0003C9.16667 63.1236 16.8767 70.8336 40 70.8336C63.1233 70.8336 70.8333 63.1236 70.8333 40.0003C70.8333 16.877 63.1233 9.16699 40 9.16699C16.8767 9.16699 9.16667 16.877 9.16667 40.0003Z" stroke="#0F0F0F" stroke-linecap="round" stroke-linejoin="round"/></svg>'),
+                      SvgPicture.string(
+                        '<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.9803 31.9829L32.0068 47.9561" stroke="#0F0F0F" stroke-linecap="round" stroke-linejoin="round"/><path d="M47.9997 47.9769L31.9995 31.9771" stroke="#0F0F0F" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9.16667 40.0003C9.16667 63.1236 16.8767 70.8336 40 70.8336C63.1233 70.8336 70.8333 63.1236 70.8333 40.0003C70.8333 16.877 63.1233 9.16699 40 9.16699C16.8767 9.16699 9.16667 16.877 9.16667 40.0003Z" stroke="#0F0F0F" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
+                      ),
                       const HeadlineBodyOneBaseWidget(
                         title: 'Your Cart Is Empty',
                         fontSize: 20,
@@ -40,13 +45,13 @@ class CartScreen extends GetView<CartController> {
                         height: 24,
                       ),
                       const HeadlineBodyOneBaseWidget(
-                        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+                        title:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
                         fontSize: 10,
                         titleTextAlign: TextAlign.center,
                       ).paddingSymmetric(horizontal: 24),
                     ],
                   ),
-
                   const SizedBox(
                     height: 36,
                   ),
@@ -65,11 +70,10 @@ class CartScreen extends GetView<CartController> {
               ).paddingSymmetric(horizontal: 24, vertical: 24),
             ),
           );
-        }
-        );
+        });
   }
 
-  Widget appBar() {
+  Widget appBar(context) {
     return Row(
       children: [
         SizedBox(
@@ -83,18 +87,20 @@ class CartScreen extends GetView<CartController> {
               ImageConstants.searchIcon,
               width: 24,
               height: 24,
+              colorFilter: ColorFilter.mode(
+                  ThemeColors.primary(context), BlendMode.srcIn),
             ),
             const SizedBox(
               width: 12,
             ),
             GestureDetector(
-              onTap: (){
-                Get.to(const NotificationScreen());
-              },
+              onTap: () => Get.to(const NotificationScreen()),
               child: SvgPicture.asset(
                 ImageConstants.notificationIcon,
                 width: 24,
                 height: 24,
+                colorFilter: ColorFilter.mode(
+                    ThemeColors.primary(context), BlendMode.srcIn),
               ),
             ),
           ],
@@ -127,8 +133,8 @@ class CartScreen extends GetView<CartController> {
                   flex: 3,
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(12)),
+                      borderRadius:
+                          const BorderRadius.vertical(top: Radius.circular(12)),
                       image: DecorationImage(
                           image: AssetImage(ImageConstants.womenPng),
                           fit: BoxFit.cover),
@@ -145,6 +151,8 @@ class CartScreen extends GetView<CartController> {
                         ImageConstants.saveMarkIcon,
                         height: 20,
                         width: 20,
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
                       ),
                     ),
                   ),
@@ -158,8 +166,8 @@ class CartScreen extends GetView<CartController> {
                         color: ThemeColors.background(context),
                         boxShadow: [
                           BoxShadow(
-                              color: ThemeColors.shadow(context)
-                                  .withOpacity(.2),
+                              color:
+                                  ThemeColors.shadow(context).withOpacity(.2),
                               blurRadius: 10,
                               offset: const Offset(0, 6)),
                         ]),
@@ -169,8 +177,8 @@ class CartScreen extends GetView<CartController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         HeadlineBodyOneBaseWidget(
-                          title: "Fashion",
-                          titleColor: Colors.black.withOpacity(.4),
+                          title: AppConstants.fashion.tr,
+                          titleColor: ThemeColors.onSecondary(context),
                         ),
                         const HeadlineBodyOneBaseWidget(
                           title: "Linen slim-fit t-shirt",
@@ -191,5 +199,4 @@ class CartScreen extends GetView<CartController> {
       },
     );
   }
-
 }

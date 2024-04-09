@@ -10,13 +10,15 @@ import 'package:kayle/UI/Commons/fade_in_file_image_widget.dart';
 
 class FourthOnBoarding extends StatefulWidget {
   final String fileUrl;
+
   const FourthOnBoarding({super.key, required this.fileUrl});
 
   @override
   State<FourthOnBoarding> createState() => _FourthOnBoardingState();
 }
 
-class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerProviderStateMixin , AutomaticKeepAliveClientMixin{
+class _FourthOnBoardingState extends State<FourthOnBoarding>
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late AnimationController _controller;
 
   @override
@@ -34,6 +36,7 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -59,8 +62,15 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(top: 13, left: 25, child: SafeArea(child: Image.asset(ImageConstants.coloredLogoPng,width: 36,height: 36,)))
-
+                Positioned(
+                    top: 13,
+                    left: 25,
+                    child: SafeArea(
+                        child: Image.asset(
+                      ImageConstants.coloredLogoPng,
+                      width: 36,
+                      height: 36,
+                    )))
               ],
             ),
           ),
@@ -97,13 +107,12 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
                 fontFamily: FontConstant.blinkerRegular,
                 titleColor: ThemeColors.primary(context),
               ),
-
               const SizedBox(
                 height: 16,
               ),
               HeadlineBodyOneBaseWidget(
                 title:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
                 fontSize: 14,
                 fontFamily: FontConstant.blinkerRegular,
                 titleColor: ThemeColors.primary(context).withOpacity(.6),
@@ -112,8 +121,7 @@ class _FourthOnBoardingState extends State<FourthOnBoarding> with SingleTickerPr
                 height: 26,
               ),
             ],
-          ).paddingSymmetric(horizontal: 24,vertical: 48),
-
+          ).paddingSymmetric(horizontal: 24, vertical: 48),
         ],
       ),
     );

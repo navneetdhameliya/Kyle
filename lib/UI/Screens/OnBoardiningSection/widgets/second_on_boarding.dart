@@ -61,11 +61,18 @@ class _SecondOnBoardingState extends State<SecondOnBoarding>
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(top: 13, left: 25, child: SafeArea(child: Image.asset(ImageConstants.coloredLogoPng,width: 36,height: 36,)))
+                Positioned(
+                    top: 13,
+                    left: 25,
+                    child: SafeArea(
+                        child: Image.asset(
+                      ImageConstants.coloredLogoPng,
+                      width: 36,
+                      height: 36,
+                    )))
               ],
             ),
           ),
-
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -96,12 +103,11 @@ class _SecondOnBoardingState extends State<SecondOnBoarding>
                 fontFamily: FontConstant.blinkerRegular,
                 titleColor: ThemeColors.primary(context),
               ),
-
               const SizedBox(
                 height: 26,
               ),
             ],
-          ).paddingSymmetric(horizontal: 24,vertical: 48),
+          ).paddingSymmetric(horizontal: 24, vertical: 48),
         ],
       ),
     );

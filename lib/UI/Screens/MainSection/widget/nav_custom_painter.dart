@@ -36,8 +36,8 @@ class NavCustomPainter extends CustomPainter {
       ..cubicTo(
         size.width * (loc + s * 0.2), // topX
         size.height * 0.15, // topY
-        size.width * loc -5, // bottomX
-        size.height * bottom +5, // bottomY
+        size.width * loc - 5, // bottomX
+        size.height * bottom + 5, // bottomY
         size.width * (loc + s * .5), // centerX
         size.height * bottom + 7, // centerY
       )

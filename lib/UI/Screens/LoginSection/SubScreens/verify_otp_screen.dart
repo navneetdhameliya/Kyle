@@ -40,7 +40,8 @@ class VerifyOtpScreen extends StatelessWidget {
                         fit: BoxFit.fill,
                       )),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 25),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 17, horizontal: 25),
                     child: SafeArea(
                       child: Column(
                         children: [
@@ -55,8 +56,11 @@ class VerifyOtpScreen extends StatelessWidget {
                                     },
                                     child: Container(
                                         margin: const EdgeInsets.only(left: 5),
-                                        child: SvgPicture.asset(ImageConstants.backButton,
-                                            colorFilter: ColorFilter.mode(ThemeColors.primary(context), BlendMode.srcIn)))),
+                                        child: SvgPicture.asset(
+                                            ImageConstants.backButton,
+                                            colorFilter: ColorFilter.mode(
+                                                ThemeColors.primary(context),
+                                                BlendMode.srcIn)))),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,24 +68,41 @@ class VerifyOtpScreen extends StatelessWidget {
                                     const SizedBox(height: 20),
                                     HeadlineBodyOneBaseWidget(
                                       title: AppConstants.verificationCode.tr,
-                                      style: TextStyleConstant.commonStyle(context: context),
+                                      style: TextStyleConstant.commonStyle(
+                                          context: context),
                                     ),
                                     RichText(
                                         text: TextSpan(
-                                            style: TextStyleConstant.commonStyle(
-                                                context: context, color: ThemeColors.secondary(context), fontWeight: FontWeight.w400, fontSize: 14),
+                                            style:
+                                                TextStyleConstant.commonStyle(
+                                                    context: context,
+                                                    color:
+                                                        ThemeColors.secondary(
+                                                            context),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 14),
                                             children: [
                                           TextSpan(
-                                            text: AppConstants.verificationCodeSent.tr,
+                                            text: AppConstants
+                                                .verificationCodeSent.tr,
                                           ),
-                                          if (controller.txtPhoneRecoveryController.value.text.isNotEmpty)
+                                          if (controller
+                                              .txtPhoneRecoveryController
+                                              .value
+                                              .text
+                                              .isNotEmpty)
                                             TextSpan(
-                                                text: "\n${controller.countryCode.value}",
-                                                style: TextStyleConstant.commonStyle(
-                                                    context: context,
-                                                    color: ThemeColors.primary(context),
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 14)),
+                                                text:
+                                                    "\n${controller.countryCode.value}",
+                                                style: TextStyleConstant
+                                                    .commonStyle(
+                                                        context: context,
+                                                        color:
+                                                            ThemeColors.primary(
+                                                                context),
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        fontSize: 14)),
                                         ])),
                                     const SizedBox(height: 11),
                                     CommonInkWell(
@@ -89,7 +110,8 @@ class VerifyOtpScreen extends StatelessWidget {
                                         Get.back();
                                       },
                                       child: HeadlineBodyOneBaseWidget(
-                                        title: AppConstants.changePhoneNumber.tr,
+                                        title:
+                                            AppConstants.changePhoneNumber.tr,
                                         style: TextStyleConstant.commonStyle(
                                           context: context,
                                           color: ColorConstants.commonYellow,
@@ -101,21 +123,36 @@ class VerifyOtpScreen extends StatelessWidget {
                                     const SizedBox(height: 25),
                                     Center(
                                       child: OtpTextField(
-                                        textStyle: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14),
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05 / 2),
+                                        textStyle:
+                                            TextStyleConstant.commonStyle(
+                                                context: context,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 14),
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.05 /
+                                                2),
                                       ),
                                     ),
                                     const SizedBox(height: 24),
-                                    if(controller.enableResend)
-                                    Center(
-                                      child: HeadlineBodyOneBaseWidget(
-                                        titleTextAlign: TextAlign.center,
-                                        style: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 12),
-                                        title: "01:${controller.secondsRemaining<10?"0":""}${controller.secondsRemaining}",
-                                      ),
-                                    )
+                                    if (controller.enableResend)
+                                      Center(
+                                        child: HeadlineBodyOneBaseWidget(
+                                          titleTextAlign: TextAlign.center,
+                                          style: TextStyleConstant.commonStyle(
+                                              context: context,
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12),
+                                          title:
+                                              "01:${controller.secondsRemaining < 10 ? "0" : ""}${controller.secondsRemaining}",
+                                        ),
+                                      )
                                   ],
                                 )
                               ],
@@ -126,7 +163,9 @@ class VerifyOtpScreen extends StatelessWidget {
                               Expanded(
                                 child: CommonButton(
                                   title: AppConstants.resend.tr,
-                                  onTap:()=>controller.enableResend ? {} : controller.resetTimer(context),
+                                  onTap: () => controller.enableResend
+                                      ? {}
+                                      : controller.resetTimer(context),
                                 ),
                               ),
                               const SizedBox(width: 11),
@@ -136,7 +175,8 @@ class VerifyOtpScreen extends StatelessWidget {
                                   titleColor: ColorConstants.blackBg,
                                   title: AppConstants.confirm.tr,
                                   onTap: () {
-                                    Get.toNamed(RoutesConstants.setNewPasswordScreen);
+                                    Get.toNamed(
+                                        RoutesConstants.setNewPasswordScreen);
                                   },
                                 ),
                               ),

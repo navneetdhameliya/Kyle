@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 
@@ -16,7 +15,8 @@ class HeadlineBodyOneBaseWidget extends StatelessWidget {
     this.foreground,
     this.fontFamily,
     this.underline = false,
-    this.letterSpacing, this.style,
+    this.letterSpacing,
+    this.style,
   }) : super(key: key);
 
   final String? title;
@@ -37,20 +37,17 @@ class HeadlineBodyOneBaseWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title ?? '',
-      style:style?? Theme
-          .of(context)
-          .textTheme
-          .bodyLarge!
-          .copyWith(
-        color: foreground == null ? titleColor : null,
-        fontSize: fontSize,
-        height: height,
-        fontFamily: fontFamily ?? FontConstant.blinkerRegular,
-        foreground: titleColor == null ? foreground : null,
-        fontWeight: fontWeight ?? FontWeight.normal,
-        decoration: underline ? TextDecoration.underline : null,
-        letterSpacing: letterSpacing,
-      ),
+      style: style ??
+          Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: foreground == null ? titleColor : null,
+                fontSize: fontSize,
+                height: height,
+                fontFamily: fontFamily ?? FontConstant.blinkerRegular,
+                foreground: titleColor == null ? foreground : null,
+                fontWeight: fontWeight ?? FontWeight.normal,
+                decoration: underline ? TextDecoration.underline : null,
+                letterSpacing: letterSpacing,
+              ),
       textAlign: titleTextAlign,
       maxLines: maxLine,
       overflow: textOverflow,

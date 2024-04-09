@@ -27,7 +27,7 @@ class HomeScreen extends GetView<HomeController> {
               width: MediaQuery.sizeOf(context).width,
               child: ListView(
                 children: [
-                  appBar(),
+                  appBar(context),
                   const SizedBox(
                     height: 24,
                   ),
@@ -58,6 +58,7 @@ class HomeScreen extends GetView<HomeController> {
                             title: AppConstants.fashionStore.tr,
                             fontSize: 8,
                             fontFamily: FontConstant.blinkerRegular,
+                            titleColor: Colors.black,
                           ),
                         ),
                         HeadlineBodyOneBaseWidget(
@@ -185,7 +186,7 @@ class HomeScreen extends GetView<HomeController> {
         });
   }
 
-  Widget appBar() {
+  Widget appBar(context) {
     return Row(
       children: [
         SizedBox(
@@ -199,18 +200,20 @@ class HomeScreen extends GetView<HomeController> {
               ImageConstants.searchIcon,
               width: 24,
               height: 24,
+              colorFilter: ColorFilter.mode(
+                  ThemeColors.primary(context), BlendMode.srcIn),
             ),
             const SizedBox(
               width: 12,
             ),
             GestureDetector(
-              onTap: (){
-                Get.to(const NotificationScreen());
-              },
+              onTap: () => Get.to(const NotificationScreen()),
               child: SvgPicture.asset(
                 ImageConstants.notificationIcon,
                 width: 24,
                 height: 24,
+                colorFilter: ColorFilter.mode(
+                    ThemeColors.primary(context), BlendMode.srcIn),
               ),
             ),
           ],
@@ -301,6 +304,9 @@ class HomeScreen extends GetView<HomeController> {
                                   ImageConstants.saveMarkIcon,
                                   height: 20,
                                   width: 20,
+                                  colorFilter: ColorFilter.mode(
+                                      ThemeColors.primary(context),
+                                      BlendMode.srcIn),
                                 ),
                               ),
                             ),
@@ -327,7 +333,8 @@ class HomeScreen extends GetView<HomeController> {
                                 children: [
                                   HeadlineBodyOneBaseWidget(
                                     title: AppConstants.fashion.tr,
-                                    titleColor: Colors.black.withOpacity(.4),
+                                    titleColor:
+                                        ThemeColors.onSecondary(context),
                                   ),
                                   const HeadlineBodyOneBaseWidget(
                                     title: "Linen slim-fit t-shirt",
@@ -390,6 +397,9 @@ class HomeScreen extends GetView<HomeController> {
                                   ImageConstants.saveMarkIcon,
                                   height: 20,
                                   width: 20,
+                                  colorFilter: ColorFilter.mode(
+                                      ThemeColors.primary(context),
+                                      BlendMode.srcIn),
                                 ),
                               ),
                             ),
@@ -415,7 +425,8 @@ class HomeScreen extends GetView<HomeController> {
                                 children: [
                                   HeadlineBodyOneBaseWidget(
                                     title: "Fashion",
-                                    titleColor: Colors.black.withOpacity(.4),
+                                    titleColor:
+                                        ThemeColors.onSecondary(context),
                                   ),
                                   const HeadlineBodyOneBaseWidget(
                                     title: "Linen slim-fit t-shirt",
@@ -544,6 +555,8 @@ class HomeScreen extends GetView<HomeController> {
                             ImageConstants.saveMarkIcon,
                             height: 20,
                             width: 20,
+                            colorFilter: ColorFilter.mode(
+                                ThemeColors.primary(context), BlendMode.srcIn),
                           ),
                         ),
                       ),
@@ -569,7 +582,7 @@ class HomeScreen extends GetView<HomeController> {
                           children: [
                             HeadlineBodyOneBaseWidget(
                               title: "Fashion",
-                              titleColor: Colors.black.withOpacity(.4),
+                              titleColor: ThemeColors.onSecondary(context),
                             ),
                             const HeadlineBodyOneBaseWidget(
                               title: "Linen slim-fit t-shirt",

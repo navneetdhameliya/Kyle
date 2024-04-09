@@ -22,13 +22,11 @@ class SetNewPasswordScreen extends StatelessWidget {
         init: LoginController(),
         id: KeyConstant.setNewPasswordKey,
         builder: (controller) {
-
           return Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: const CommonAppBar(),
             backgroundColor: ThemeColors.background(context),
             body: SizedBox(
-
               width: double.infinity,
               height: double.infinity,
               child: SingleChildScrollView(
@@ -36,11 +34,10 @@ class SetNewPasswordScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 15),
-                  Image.asset(
+                    Image.asset(
                       ImageConstants.setNewPwdImg,
                       width: double.infinity,
                       fit: BoxFit.fill,
-
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -51,17 +48,22 @@ class SetNewPasswordScreen extends StatelessWidget {
                           const SizedBox(height: 20),
                           HeadlineBodyOneBaseWidget(
                             title: AppConstants.setNewPassword.tr,
-                            style: TextStyleConstant.commonStyle(context: context),
+                            style:
+                                TextStyleConstant.commonStyle(context: context),
                           ),
                           HeadlineBodyOneBaseWidget(
                             title: AppConstants.setNewPasswordDesc.tr,
                             style: TextStyleConstant.commonStyle(
-                                context: context, color: ThemeColors.secondary(context), fontWeight: FontWeight.w400, fontSize: 14),
+                                context: context,
+                                color: ThemeColors.secondary(context),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14),
                           ),
                           const SizedBox(height: 29),
                           commonTextField(
                               context: context,
-                              controller: controller.txtSetPasswordController.value,
+                              controller:
+                                  controller.txtSetPasswordController.value,
                               hint: AppConstants.password.tr,
                               suffixIcon: SvgPicture.asset(
                                 ImageConstants.hidePassword,
@@ -70,13 +72,13 @@ class SetNewPasswordScreen extends StatelessWidget {
                                 ImageConstants.password,
                               )),
                           const SizedBox(height: 12),
-
                           commonTextField(
                               context: context,
                               suffixIcon: SvgPicture.asset(
                                 ImageConstants.hidePassword,
                               ),
-                              controller: controller.txtSetConfirmPasswordController.value,
+                              controller: controller
+                                  .txtSetConfirmPasswordController.value,
                               hint: AppConstants.confirmPassword.tr,
                               prefixIcon: SvgPicture.asset(
                                 ImageConstants.password,
@@ -87,7 +89,6 @@ class SetNewPasswordScreen extends StatelessWidget {
                             titleColor: ColorConstants.blackBg,
                             title: AppConstants.changePassword.tr,
                             onTap: () {
-
                               Get.offAllNamed(RoutesConstants.loginScreen);
                             },
                           )

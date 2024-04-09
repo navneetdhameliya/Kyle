@@ -17,6 +17,7 @@ import 'create_account_controller.dart';
 
 class CreateAccountScreen extends GetView<CreateAccountController> {
   const CreateAccountScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CreateAccountController>(
@@ -31,14 +32,19 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(ImageConstants.registerGirlImg,
-                    height: MediaQuery.of(context).size.height / 2.1, width: double.infinity, fit: BoxFit.fill),
+                    height: MediaQuery.of(context).size.height / 2.1,
+                    width: double.infinity,
+                    fit: BoxFit.fill),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        HeadlineBodyOneBaseWidget(title: AppConstants.createAccount.tr, style: TextStyleConstant.commonStyle(context: context)),
+                        HeadlineBodyOneBaseWidget(
+                            title: AppConstants.createAccount.tr,
+                            style: TextStyleConstant.commonStyle(
+                                context: context)),
                         const SizedBox(height: 25),
                         commonTextField(
                             context: context,
@@ -50,21 +56,31 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
                         const SizedBox(height: 12),
                         IntlPhoneField(
                           controller: controller.txtPhoneController.value,
-                          style: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14),
+                          style: TextStyleConstant.commonStyle(
+                              context: context,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
                           decoration: InputDecoration(
                               errorBorder: customBorder(context),
                               filled: true,
                               fillColor: ThemeColors.inversePrimary(context),
-                              errorStyle:
-                                  TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14, color: Colors.redAccent),
+                              errorStyle: TextStyleConstant.commonStyle(
+                                  context: context,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Colors.redAccent),
                               focusedBorder: customBorder(context),
                               enabledBorder: customBorder(context),
                               disabledBorder: customBorder(context),
                               border: customBorder(context),
-                              contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 20),
                               hintText: AppConstants.phoneNumber.tr,
                               hintStyle: TextStyleConstant.commonStyle(
-                                  color: ThemeColors.secondary(context), fontSize: 14, fontWeight: FontWeight.w300, context: context)),
+                                  color: ThemeColors.secondary(context),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w300,
+                                  context: context)),
                           initialCountryCode: 'IN',
                           onChanged: (phone) {
                             // print(phone.completeNumber);
@@ -75,7 +91,8 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
                             context: context,
                             controller: controller.txtPasswordController.value,
                             hint: AppConstants.password.tr,
-                            suffixIcon: SvgPicture.asset(ImageConstants.hidePassword),
+                            suffixIcon:
+                                SvgPicture.asset(ImageConstants.hidePassword),
                             prefixIcon: SvgPicture.asset(
                               ImageConstants.password,
                             )),
@@ -84,21 +101,28 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
                           children: [
                             CommonInkWell(
                               onTap: () {
-                                controller.selectedRadio.value = !controller.selectedRadio.value;
-                                controller.update([KeyConstant.createAccountKey]);
+                                controller.selectedRadio.value =
+                                    !controller.selectedRadio.value;
+                                controller
+                                    .update([KeyConstant.createAccountKey]);
                               },
                               child: Container(
                                 height: 16,
                                 width: 16,
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: controller.selectedRadio.value ? ThemeColors.primary(context) : ThemeColors.onSecondary(context),
+                                        color: controller.selectedRadio.value
+                                            ? ThemeColors.primary(context)
+                                            : ThemeColors.onSecondary(context),
                                         width: 1.5),
                                     shape: BoxShape.circle),
                                 padding: const EdgeInsets.all(2),
                                 child: controller.selectedRadio.value
                                     ? Container(
-                                        decoration: BoxDecoration(shape: BoxShape.circle, color: ThemeColors.primary(context)),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color:
+                                                ThemeColors.primary(context)),
                                       )
                                     : const SizedBox(),
                               ),
@@ -144,7 +168,8 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
                                 titleColor: ColorConstants.blackBg,
                                 title: AppConstants.signUp.tr,
                                 onTap: () {
-                                  Get.toNamed(RoutesConstants.setupProfileScreen);
+                                  Get.toNamed(
+                                      RoutesConstants.setupProfileScreen);
                                 },
                               ),
                             ),

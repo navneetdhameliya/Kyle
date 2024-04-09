@@ -13,7 +13,8 @@ class NavBarItemWidget extends StatelessWidget {
   final TextStyle? labelStyle;
   final bool selected;
 
-  const NavBarItemWidget({super.key,
+  const NavBarItemWidget({
+    super.key,
     required this.onTap,
     required this.position,
     required this.length,
@@ -21,7 +22,7 @@ class NavBarItemWidget extends StatelessWidget {
     required this.child,
     this.label,
     this.labelStyle,
-    this.selected=false,
+    this.selected = false,
   });
 
   @override
@@ -50,15 +51,15 @@ class NavBarItemWidget extends StatelessWidget {
       children: [
         _buildIcon(),
         const SizedBox(height: 4.0),
-        if(selected)
-        Container(
-          height: 6,
-          width:  6,
-          decoration: BoxDecoration(
-          color: ThemeColors.buttonActive,
-            shape: BoxShape.circle,
+        if (selected)
+          Container(
+            height: 6,
+            width: 6,
+            decoration: BoxDecoration(
+              color: ThemeColors.buttonActive,
+              shape: BoxShape.circle,
+            ),
           ),
-        ),
         SizedBox(height: Platform.isIOS ? 20.0 : 0.0),
       ],
     );

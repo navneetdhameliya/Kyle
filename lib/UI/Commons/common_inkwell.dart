@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CommonInkWell extends StatelessWidget {
-
   final GestureTapCallback? onTap;
   final Widget child;
 
@@ -16,7 +15,6 @@ class CommonInkWell extends StatelessWidget {
       highlightColor: Colors.transparent,
       focusColor: Colors.transparent,
       child: child,
-
     );
   }
 }

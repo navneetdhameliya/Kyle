@@ -10,6 +10,7 @@ import 'splash_controller.dart';
 
 class SplashScreen extends GetView<SplashController> {
   const SplashScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
@@ -24,9 +25,11 @@ class SplashScreen extends GetView<SplashController> {
               alignment: AlignmentDirectional.bottomCenter,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(MediaQuery.of(context).platformBrightness == Brightness.dark
-                        ? ImageConstants.splashImageDark
-                        : ImageConstants.splashImageLight),
+                    image: AssetImage(
+                        MediaQuery.of(context).platformBrightness ==
+                                Brightness.dark
+                            ? ImageConstants.splashImageDark
+                            : ImageConstants.splashImageLight),
                     fit: BoxFit.fill),
               ),
               child: HeadlineBodyOneBaseWidget(

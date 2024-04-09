@@ -8,4 +8,9 @@ class RoutesConstants {
   static const String forgotPasswordTwoScreen = "/forgotPasswordTwoScreen";
   static const String verifyOtpScreen = "/verifyOtpScreen";
   static const String setNewPasswordScreen = "/setNewPasswordScreen";
+
+  static const String cartScreen = "/cartScreen";
+  static const String wishListScreen = "/wishListScreen";
+  static const String profileScreen = "/profileScreen";
+  static const String qrScreen = "/qrScreen";
 }

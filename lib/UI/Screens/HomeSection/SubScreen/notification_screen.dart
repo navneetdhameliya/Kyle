@@ -32,7 +32,7 @@ class NotificationScreen extends GetView<HomeController> {
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return notificationTile(
-                          unRead: index.isEven?true:false,
+                            unRead: index.isEven ? true : false,
                             context: context,
                             timeAgo: '2 hour ago',
                             title:
@@ -50,7 +50,7 @@ class NotificationScreen extends GetView<HomeController> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
-          onTap: ()=>Get.back(),
+          onTap: () => Get.back(),
           child: SizedBox(
             height: 24,
             width: 24,
@@ -58,6 +58,8 @@ class NotificationScreen extends GetView<HomeController> {
               ImageConstants.backButton,
               width: 24,
               height: 24,
+              colorFilter: ColorFilter.mode(
+                  ThemeColors.primary(context), BlendMode.srcIn),
             ),
           ),
         ),
@@ -77,6 +79,8 @@ class NotificationScreen extends GetView<HomeController> {
           ImageConstants.threeDotesHorizontal,
           width: 24,
           height: 24,
+          colorFilter:
+              ColorFilter.mode(ThemeColors.primary(context), BlendMode.srcIn),
         ),
       ],
     );
@@ -98,7 +102,7 @@ class NotificationScreen extends GetView<HomeController> {
               width: 52,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: ThemeColors.background(context),
+                color: ThemeColors.inversePrimary(context),
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
@@ -113,17 +117,17 @@ class NotificationScreen extends GetView<HomeController> {
                 height: 24,
               ),
             ),
-            if(unRead)
-            Container(
-              height: 8,
-              width:  8,
-              margin: const EdgeInsets.all(2),
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
+            if (unRead)
+              Container(
+                height: 8,
+                width: 8,
+                margin: const EdgeInsets.all(2),
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                ),
               ),
-            ),
           ],
         ),
         const SizedBox(
@@ -137,7 +141,9 @@ class NotificationScreen extends GetView<HomeController> {
               HeadlineBodyOneBaseWidget(
                 title: title,
                 fontSize: 14.0,
-                titleColor: unRead?ThemeColors.primary(context):ThemeColors.onSecondary(context),
+                titleColor: unRead
+                    ? ThemeColors.primary(context)
+                    : ThemeColors.onSecondary(context),
               ),
               HeadlineBodyOneBaseWidget(
                 title: timeAgo,

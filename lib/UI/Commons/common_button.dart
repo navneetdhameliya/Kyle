@@ -38,13 +38,22 @@ class CommonButton extends StatelessWidget {
     return CommonInkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: loader == true ? 8 : 12, horizontal: 12),
+        padding: EdgeInsets.symmetric(
+            vertical: loader == true ? 8 : 12, horizontal: 12),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-            boxShadow: MediaQuery.of(context).platformBrightness == Brightness.dark
-                ? []
-                : [BoxShadow(color: ThemeColors.primary(context).withOpacity(0.1), blurRadius: 25, offset: const Offset(0, 4), spreadRadius: 1)],
-        border: Border.all(color: borderColor ?? Colors.transparent, width: 1.5),
+          boxShadow:
+              MediaQuery.of(context).platformBrightness == Brightness.dark
+                  ? []
+                  : [
+                      BoxShadow(
+                          color: ThemeColors.primary(context).withOpacity(0.1),
+                          blurRadius: 25,
+                          offset: const Offset(0, 4),
+                          spreadRadius: 1)
+                    ],
+          border:
+              Border.all(color: borderColor ?? Colors.transparent, width: 1.5),
           color: buttonColor ?? ThemeColors.inversePrimary(context),
           borderRadius: BorderRadius.circular(radius ?? 25),
         ),
@@ -54,8 +63,7 @@ class CommonButton extends StatelessWidget {
                 width: 32,
                 child: CircularProgressIndicator(
                   color: ColorConstants.commonYellow,
-                )
-              )
+                ))
             : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,7 +71,8 @@ class CommonButton extends StatelessWidget {
                   if (icon != null) ...[
                     SvgPicture.asset(
                       icon!,
-                      colorFilter: ColorFilter.mode(iconColor!, BlendMode.srcIn),
+                      colorFilter:
+                          ColorFilter.mode(iconColor!, BlendMode.srcIn),
                     ),
                     const SizedBox(width: 13),
                   ],

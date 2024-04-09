@@ -4,7 +4,8 @@ import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 
 typedef OnCodeEnteredCompletion = void Function(String value);
 typedef OnCodeChanged = void Function(String value);
-typedef HandleControllers = void Function(List<TextEditingController?> controllers);
+typedef HandleControllers = void Function(
+    List<TextEditingController?> controllers);
 
 // ignore: must_be_immutable
 class OtpTextField extends StatefulWidget {
@@ -72,7 +73,9 @@ class OtpTextField extends StatefulWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(4.0)),
     this.inputFormatters,
   })  : assert(numberOfFields > 0),
-        assert(styles.isNotEmpty ? styles.length == numberOfFields : styles.isEmpty);
+        assert(styles.isNotEmpty
+            ? styles.length == numberOfFields
+            : styles.isEmpty);
 
   @override
   createState() => _OtpTextFieldState();
@@ -128,14 +131,19 @@ class _OtpTextFieldState extends State<OtpTextField> {
     TextStyle? style,
   }) {
     return Container(
-      height:68,
-
+      height: 68,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? []
-        : [BoxShadow(color: ThemeColors.primary(context).withOpacity(0.1), blurRadius: 25, offset: const Offset(0, 4), spreadRadius: 1)]),
-
+          shape: BoxShape.circle,
+          boxShadow:
+              MediaQuery.of(context).platformBrightness == Brightness.dark
+                  ? []
+                  : [
+                      BoxShadow(
+                          color: ThemeColors.primary(context).withOpacity(0.1),
+                          blurRadius: 25,
+                          offset: const Offset(0, 4),
+                          spreadRadius: 1)
+                    ]),
       width: 68,
       margin: widget.margin,
       child: TextField(
@@ -151,20 +159,19 @@ class _OtpTextFieldState extends State<OtpTextField> {
         controller: _textControllers[index],
         focusNode: _focusNodes[index],
         enabled: widget.enabled,
-
         inputFormatters: widget.inputFormatters,
         decoration: widget.hasCustomInputDecoration
             ? widget.decoration
             : InputDecoration(
-          counterText: "",
-          filled:true,
-          fillColor: ThemeColors.inversePrimary(context),
-          focusedBorder:  underlineInputBorder(widget.focusedBorderColor),
-          enabledBorder:underlineInputBorder(widget.enabledBorderColor),
-          disabledBorder: underlineInputBorder(widget.disabledBorderColor),
-          border: InputBorder.none,
-        ),
-
+                counterText: "",
+                filled: true,
+                fillColor: ThemeColors.inversePrimary(context),
+                focusedBorder: underlineInputBorder(widget.focusedBorderColor),
+                enabledBorder: underlineInputBorder(widget.enabledBorderColor),
+                disabledBorder:
+                    underlineInputBorder(widget.disabledBorderColor),
+                border: InputBorder.none,
+              ),
         obscureText: widget.obscureText,
         onChanged: (String value) {
           _verificationCode[index] = value;
@@ -174,7 +181,8 @@ class _OtpTextFieldState extends State<OtpTextField> {
             indexOfTextField: index,
           );
 
-          changeFocusToPreviousNodeWhenValueIsRemoved(value: value, indexOfTextField: index);
+          changeFocusToPreviousNodeWhenValueIsRemoved(
+              value: value, indexOfTextField: index);
           onSubmit(verificationCode: _verificationCode);
         },
       ),
@@ -192,7 +200,8 @@ class _OtpTextFieldState extends State<OtpTextField> {
   }
 
   OutlineInputBorder underlineInputBorder(Color color) {
-    return  OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(100));
+    return OutlineInputBorder(
+        borderSide: BorderSide.none, borderRadius: BorderRadius.circular(100));
   }
 
   Widget generateTextFields(BuildContext context) {

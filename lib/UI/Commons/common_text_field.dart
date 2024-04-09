@@ -14,7 +14,7 @@ commonTextField(
     Widget? prefixIcon,
     bool? suffixIconSpace,
     FocusNode? focusNode,
-    bool readOnly =false,
+    bool readOnly = false,
     FormFieldValidator<String>? validator,
     TextCapitalization? textCapitalization,
     ValueChanged<String>? onChanged,
@@ -33,7 +33,13 @@ commonTextField(
     decoration: BoxDecoration(
         boxShadow: MediaQuery.of(context).platformBrightness == Brightness.dark
             ? []
-            : [BoxShadow(color: ThemeColors.primary(context).withOpacity(0.1), blurRadius: 25, offset: const Offset(0, 4), spreadRadius: 1)]),
+            : [
+                BoxShadow(
+                    color: ThemeColors.primary(context).withOpacity(0.1),
+                    blurRadius: 25,
+                    offset: const Offset(0, 4),
+                    spreadRadius: 1)
+              ]),
     child: TextFormField(
       validator: validator,
       keyboardType: textInputType ?? TextInputType.text,
@@ -45,37 +51,63 @@ commonTextField(
       maxLines: maxLine,
       minLines: minLine,
       onFieldSubmitted: onFieldSubmitted,
-      style: textStyle ?? TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14),
+      style: textStyle ??
+          TextStyleConstant.commonStyle(
+              context: context, fontWeight: FontWeight.w400, fontSize: 14),
       textCapitalization: textCapitalization ?? TextCapitalization.none,
       onChanged: onChanged,
       textInputAction: textInputAction ?? TextInputAction.done,
       textAlignVertical: textAlignVertical ?? TextAlignVertical.bottom,
       decoration: InputDecoration(
           isDense: isDense,
-          prefixIconConstraints: const BoxConstraints(minWidth: 26 + 20, maxWidth: 26 + 20, minHeight: 18, maxHeight: 18),
-          suffixIconConstraints: const BoxConstraints(minWidth: 26 + 20, maxWidth: 26 + 20, minHeight: 18, maxHeight: 18),
+          prefixIconConstraints: const BoxConstraints(
+              minWidth: 26 + 20,
+              maxWidth: 26 + 20,
+              minHeight: 18,
+              maxHeight: 18),
+          suffixIconConstraints: const BoxConstraints(
+              minWidth: 26 + 20,
+              maxWidth: 26 + 20,
+              minHeight: 18,
+              maxHeight: 18),
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           filled: true,
           fillColor: ThemeColors.inversePrimary(context),
-          errorStyle: TextStyleConstant.commonStyle(context: context, fontWeight: FontWeight.w400, fontSize: 14, color: Colors.redAccent),
-          focusedBorder: showBorder ? (showOnFocusBorder ? enabledBorder(context) : customBorder(context)) : InputBorder.none,
-          enabledBorder: showBorder ? (customBorder(context)) : InputBorder.none,
-          disabledBorder: showBorder ? (customBorder(context)) : InputBorder.none,
+          errorStyle: TextStyleConstant.commonStyle(
+              context: context,
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+              color: Colors.redAccent),
+          focusedBorder: showBorder
+              ? (showOnFocusBorder
+                  ? enabledBorder(context)
+                  : customBorder(context))
+              : InputBorder.none,
+          enabledBorder:
+              showBorder ? (customBorder(context)) : InputBorder.none,
+          disabledBorder:
+              showBorder ? (customBorder(context)) : InputBorder.none,
           border: showBorder ? customBorder(context) : InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           hintText: hint,
-          hintStyle:
-              TextStyleConstant.commonStyle(color: ThemeColors.secondary(context), fontSize: 14, fontWeight: FontWeight.w300, context: context)),
+          hintStyle: TextStyleConstant.commonStyle(
+              color: ThemeColors.secondary(context),
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+              context: context)),
       focusNode: focusNode,
     ),
   );
 }
 
 customBorder(BuildContext context) {
-  return OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(25));
+  return OutlineInputBorder(
+      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(25));
 }
 
 enabledBorder(BuildContext context) {
-  return OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(12));
+  return OutlineInputBorder(
+      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(12));
 }

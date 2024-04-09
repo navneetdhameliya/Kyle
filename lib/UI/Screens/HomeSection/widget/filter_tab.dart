@@ -4,7 +4,7 @@ import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
 
 class FilterTab extends StatelessWidget {
-  const  FilterTab({
+  const FilterTab({
     super.key,
     this.isSelected = false,
     this.tabText,
@@ -22,20 +22,24 @@ class FilterTab extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: isSelected! ? ThemeColors.buttonActive : ThemeColors.background(context),
-          boxShadow: [BoxShadow(
-              color: ThemeColors.shadow(context)
-                  .withOpacity(.1),
-              blurRadius: 4,
-              offset: const Offset(0, 4)),],
+          color: isSelected!
+              ? ThemeColors.buttonActive
+              : ThemeColors.background(context),
+          boxShadow: [
+            BoxShadow(
+                color: ThemeColors.shadow(context).withOpacity(.1),
+                blurRadius: 4,
+                offset: const Offset(0, 4)),
+          ],
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         margin: const EdgeInsets.only(right: 16),
         alignment: Alignment.center,
         child: HeadlineBodyOneBaseWidget(
           title: tabText,
-          titleColor:
-          isSelected! ? ThemeColors.primary(context) : ThemeColors.onSecondary(context),
+          titleColor: isSelected!
+              ? ThemeColors.primary(context)
+              : ThemeColors.onSecondary(context),
           fontFamily: FontConstant.blinkerRegular,
           fontSize: 10,
         ),

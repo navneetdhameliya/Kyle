@@ -24,37 +24,72 @@ class ProfileScreen extends GetView<ProfileController> {
               child: ListView(
                 children: [
                   appBar(context),
-                  const SizedBox(height: 20,),
-                  HeadlineBodyOneBaseWidget(title: 'Account',fontSize: 12,titleColor: ThemeColors.onSecondary(context),).paddingSymmetric(horizontal: 24,vertical: 12),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  HeadlineBodyOneBaseWidget(
+                    title: 'Account',
+                    fontSize: 12,
+                    titleColor: ThemeColors.onSecondary(context),
+                  ).paddingSymmetric(horizontal: 24, vertical: 12),
                   ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: controller.accountItems.length,
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
-                        return settingTile(context: context,index: index,title: controller.accountItems[index].name,icon: controller.accountItems[index].icon).paddingSymmetric(horizontal: 24);
+                        return settingTile(
+                                context: context,
+                                index: index,
+                                title: controller.accountItems[index].name,
+                                icon: controller.accountItems[index].icon)
+                            .paddingSymmetric(horizontal: 24);
                       }),
-                  const SizedBox(height: 20,),
-                  HeadlineBodyOneBaseWidget(title: 'Privacy',fontSize: 12,titleColor: ThemeColors.onSecondary(context),).paddingSymmetric(horizontal: 24,vertical: 12),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  HeadlineBodyOneBaseWidget(
+                    title: 'Privacy',
+                    fontSize: 12,
+                    titleColor: ThemeColors.onSecondary(context),
+                  ).paddingSymmetric(horizontal: 24, vertical: 12),
                   ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: controller.privacyItems.length,
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
-                        return settingTile(context: context,index: index,title: controller.privacyItems[index].name,icon: controller.privacyItems[index].icon).paddingSymmetric(horizontal: 24);
+                        return settingTile(
+                                context: context,
+                                index: index,
+                                title: controller.privacyItems[index].name,
+                                icon: controller.privacyItems[index].icon)
+                            .paddingSymmetric(horizontal: 24);
                       }),
-                  const SizedBox(height: 20,),
-                  HeadlineBodyOneBaseWidget(title: 'Help & Support',fontSize: 12,titleColor: ThemeColors.onSecondary(context),).paddingSymmetric(horizontal: 24,vertical: 12),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  HeadlineBodyOneBaseWidget(
+                    title: 'Help & Support',
+                    fontSize: 12,
+                    titleColor: ThemeColors.onSecondary(context),
+                  ).paddingSymmetric(horizontal: 24, vertical: 12),
                   ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: controller.helpItems.length,
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
-                        return settingTile(context: context,index: index,title: controller.helpItems[index].name,icon: controller.helpItems[index].icon).paddingSymmetric(horizontal: 24);
+                        return settingTile(
+                                context: context,
+                                index: index,
+                                title: controller.helpItems[index].name,
+                                icon: controller.helpItems[index].icon)
+                            .paddingSymmetric(horizontal: 24);
                       }),
-                  const SizedBox(height: 65,),
+                  const SizedBox(
+                    height: 65,
+                  ),
                 ],
               ),
             ),
@@ -147,6 +182,7 @@ class ProfileScreen extends GetView<ProfileController> {
                             const HeadlineBodyOneBaseWidget(
                               title: 'Savannah Robertson',
                               fontSize: 16.0,
+                              titleColor: Colors.black,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -158,6 +194,7 @@ class ProfileScreen extends GetView<ProfileController> {
                               child: const HeadlineBodyOneBaseWidget(
                                 title: '@Savannah92',
                                 fontSize: 8.0,
+                                titleColor: Colors.black,
                               ),
                             ),
                           ],
@@ -181,7 +218,7 @@ class ProfileScreen extends GetView<ProfileController> {
           height: 69,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: ColorConstants.white,
+            color: ThemeColors.inversePrimary(context),
             borderRadius: BorderRadius.circular(50),
             boxShadow: [
               BoxShadow(
@@ -202,9 +239,10 @@ class ProfileScreen extends GetView<ProfileController> {
                     colorFilter: ColorFilter.mode(
                         ThemeColors.buttonActive, BlendMode.srcIn),
                   ),
-                  const HeadlineBodyOneBaseWidget(
+                  HeadlineBodyOneBaseWidget(
                     title: 'Wallet',
                     fontSize: 10,
+                    titleColor: ThemeColors.onSecondary(context),
                   ),
                 ],
               ),
@@ -216,9 +254,10 @@ class ProfileScreen extends GetView<ProfileController> {
                     colorFilter: ColorFilter.mode(
                         ThemeColors.buttonActive, BlendMode.srcIn),
                   ),
-                  const HeadlineBodyOneBaseWidget(
+                  HeadlineBodyOneBaseWidget(
                     title: 'Order',
                     fontSize: 10,
+                    titleColor: ThemeColors.onSecondary(context),
                   ),
                 ],
               ),
@@ -230,9 +269,10 @@ class ProfileScreen extends GetView<ProfileController> {
                     colorFilter: ColorFilter.mode(
                         ThemeColors.buttonActive, BlendMode.srcIn),
                   ),
-                  const HeadlineBodyOneBaseWidget(
+                  HeadlineBodyOneBaseWidget(
                     title: 'Discount',
                     fontSize: 10,
+                    titleColor: ThemeColors.onSecondary(context),
                   ),
                 ],
               ),
@@ -243,12 +283,19 @@ class ProfileScreen extends GetView<ProfileController> {
     );
   }
 
-  Widget settingTile({context,required int index,required String title,required String icon,Color iconColor = Colors.black}){
+  Widget settingTile(
+      {context,
+      required int index,
+      required String title,
+      required String icon,
+      Color iconColor = Colors.black}) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: ColorConstants.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(index==0?10:0),bottom: Radius.circular(index==4?10:0)),
+        color: ThemeColors.inversePrimary(context),
+        borderRadius: BorderRadius.vertical(
+            top: Radius.circular(index == 0 ? 10 : 0),
+            bottom: Radius.circular(index == 4 ? 10 : 0)),
         boxShadow: [
           BoxShadow(
               color: ThemeColors.shadow(context).withOpacity(.12),
@@ -257,7 +304,7 @@ class ProfileScreen extends GetView<ProfileController> {
         ],
       ),
       margin: const EdgeInsets.only(bottom: 4),
-      padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -269,17 +316,20 @@ class ProfileScreen extends GetView<ProfileController> {
                 child: SvgPicture.asset(
                   icon,
                   colorFilter: ColorFilter.mode(
-                      iconColor, BlendMode.srcIn),
+                      ThemeColors.primary(context), BlendMode.srcIn),
                 ),
               ).paddingOnly(right: 8),
               HeadlineBodyOneBaseWidget(
                 title: title,
                 fontSize: 12,
+                titleColor: ThemeColors.primary(context),
               ),
             ],
           ),
           SvgPicture.asset(
             ImageConstants.rightArrowIcon,
+            colorFilter:
+                ColorFilter.mode(ThemeColors.primary(context), BlendMode.srcIn),
           ),
         ],
       ),

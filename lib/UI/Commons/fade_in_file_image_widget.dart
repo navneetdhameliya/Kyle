@@ -33,7 +33,8 @@ class DelayedDisplay extends StatefulWidget {
   createState() => _DelayedDisplayState();
 }
 
-class _DelayedDisplayState extends State<DelayedDisplay> with TickerProviderStateMixin {
+class _DelayedDisplayState extends State<DelayedDisplay>
+    with TickerProviderStateMixin {
   late AnimationController _opacityController;
   late AnimationController _slideController;
 
@@ -44,6 +45,7 @@ class _DelayedDisplayState extends State<DelayedDisplay> with TickerProviderStat
   Duration get delay => widget.delay;
 
   Duration get opacityTransitionDuration => widget.fadingDuration;
+
   Duration get slideTransitionDuration => widget.slideDuration;
 
   Curve get slidingCurve => widget.slidingCurve;

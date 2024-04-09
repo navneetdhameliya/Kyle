@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
@@ -17,6 +15,4 @@ class OnBoardingController extends GetxController {
     initialIndex.value = value;
     update();
   }
-
-
 }
