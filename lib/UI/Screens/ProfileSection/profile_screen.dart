@@ -14,84 +14,86 @@ class ProfileScreen extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return GetBuilder<ProfileController>(
         init: ProfileController(),
-        id: KeyConstant.profileKey,
+        id: ControllerId.profileKey,
         builder: (controller) {
           return Scaffold(
             backgroundColor: ThemeColors.background(context),
-            body: SizedBox(
-              height: MediaQuery.sizeOf(context).height,
-              width: MediaQuery.sizeOf(context).width,
-              child: ListView(
-                children: [
-                  appBar(context),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  HeadlineBodyOneBaseWidget(
-                    title: 'Account',
-                    fontSize: 12,
-                    titleColor: ThemeColors.onSecondary(context),
-                  ).paddingSymmetric(horizontal: 24, vertical: 12),
-                  ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.accountItems.length,
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context, index) {
-                        return settingTile(
-                                context: context,
-                                index: index,
-                                title: controller.accountItems[index].name,
-                                icon: controller.accountItems[index].icon)
-                            .paddingSymmetric(horizontal: 24);
-                      }),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  HeadlineBodyOneBaseWidget(
-                    title: 'Privacy',
-                    fontSize: 12,
-                    titleColor: ThemeColors.onSecondary(context),
-                  ).paddingSymmetric(horizontal: 24, vertical: 12),
-                  ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.privacyItems.length,
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context, index) {
-                        return settingTile(
-                                context: context,
-                                index: index,
-                                title: controller.privacyItems[index].name,
-                                icon: controller.privacyItems[index].icon)
-                            .paddingSymmetric(horizontal: 24);
-                      }),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  HeadlineBodyOneBaseWidget(
-                    title: 'Help & Support',
-                    fontSize: 12,
-                    titleColor: ThemeColors.onSecondary(context),
-                  ).paddingSymmetric(horizontal: 24, vertical: 12),
-                  ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.helpItems.length,
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context, index) {
-                        return settingTile(
-                                context: context,
-                                index: index,
-                                title: controller.helpItems[index].name,
-                                icon: controller.helpItems[index].icon)
-                            .paddingSymmetric(horizontal: 24);
-                      }),
-                  const SizedBox(
-                    height: 65,
-                  ),
-                ],
-              ),
+            appBar: AppBar(
+              toolbarHeight: 0,
+              scrolledUnderElevation: 0,
+              backgroundColor: ColorConstants.commonYellow,
+            ),
+            body: ListView(
+              physics: const ClampingScrollPhysics(),
+              children: [
+                appBar(context),
+                const SizedBox(
+                  height: 20,
+                ),
+                HeadlineBodyOneBaseWidget(
+                  title: 'Account',
+                  fontSize: 12,
+                  titleColor: ThemeColors.onSecondary(context),
+                ).paddingSymmetric(horizontal: 24, vertical: 12),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.accountItems.length,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      return settingTile(
+                              context: context,
+                              index: index,
+                              title: controller.accountItems[index].name,
+                              icon: controller.accountItems[index].icon)
+                          .paddingSymmetric(horizontal: 24);
+                    }),
+                const SizedBox(
+                  height: 20,
+                ),
+                HeadlineBodyOneBaseWidget(
+                  title: 'Privacy',
+                  fontSize: 12,
+                  titleColor: ThemeColors.onSecondary(context),
+                ).paddingSymmetric(horizontal: 24, vertical: 12),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.privacyItems.length,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      return settingTile(
+                              context: context,
+                              index: index,
+                              title: controller.privacyItems[index].name,
+                              icon: controller.privacyItems[index].icon)
+                          .paddingSymmetric(horizontal: 24);
+                    }),
+                const SizedBox(
+                  height: 20,
+                ),
+                HeadlineBodyOneBaseWidget(
+                  title: 'Help & Support',
+                  fontSize: 12,
+                  titleColor: ThemeColors.onSecondary(context),
+                ).paddingSymmetric(horizontal: 24, vertical: 12),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.helpItems.length,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      return settingTile(
+                              context: context,
+                              index: index,
+                              title: controller.helpItems[index].name,
+                              icon: controller.helpItems[index].icon)
+                          .paddingSymmetric(horizontal: 24);
+                    }),
+                const SizedBox(
+                  height: 65,
+                ),
+              ],
             ),
           );
         });
@@ -104,13 +106,12 @@ class ProfileScreen extends GetView<ProfileController> {
         Column(
           children: [
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/image/profile_screen_bg.png'),
+                  image: AssetImage(ImageConstants.profileScreenBg),
                   fit: BoxFit.cover,
                 ),
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(24)),
+                borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
               ),
               child: Column(
                 children: [
@@ -119,10 +120,6 @@ class ProfileScreen extends GetView<ProfileController> {
                   ),
                   Row(
                     children: [
-                      SizedBox(
-                          height: 24,
-                          width: 24,
-                          child: SvgPicture.asset(ImageConstants.backButton)),
                       const Spacer(),
                       Row(
                         children: [

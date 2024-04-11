@@ -20,7 +20,7 @@ class VerifyOtpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
         init: LoginController(),
-        id: KeyConstant.verifyOtpKey,
+        id: ControllerId.verifyOtpKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,

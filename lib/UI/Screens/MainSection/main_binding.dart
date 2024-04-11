@@ -10,7 +10,7 @@ class MainBinding extends Bindings {
   void dependencies() {
     Get.lazyPut(() => MainController());
     Get.lazyPut(() => HomeController());
-    Get.lazyPut(() => CartController());
+    Get.lazyPut(() => CartController(),fenix: true);
     Get.lazyPut(() => ProfileController());
     Get.lazyPut(() => QrController());
   }

@@ -1,18 +1,29 @@
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/route_constants.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/checkout_screen.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/proceed_to_checkout.dart';
 import 'package:kayle/UI/Screens/CartSection/cart_binding.dart';
 import 'package:kayle/UI/Screens/CartSection/cart_screen.dart';
 import 'package:kayle/UI/Screens/CreateAccount/SubScreens/setup_profile.dart';
-import 'package:kayle/UI/Screens/CreateAccount/creaet_account_screen.dart';
+import 'package:kayle/UI/Screens/CreateAccount/create_account_screen.dart';
 import 'package:kayle/UI/Screens/CreateAccount/create_account_binding.dart';
+import 'package:kayle/UI/Screens/HomeSection/SubScreen/notification_screen.dart';
+import 'package:kayle/UI/Screens/HomeSection/home_binding.dart';
 import 'package:kayle/UI/Screens/LoginSection/SubScreens/forgot_password_one.dart';
 import 'package:kayle/UI/Screens/LoginSection/SubScreens/forgot_password_two.dart';
 import 'package:kayle/UI/Screens/LoginSection/SubScreens/set_new_password.dart';
 import 'package:kayle/UI/Screens/LoginSection/SubScreens/verify_otp_screen.dart';
 import 'package:kayle/UI/Screens/LoginSection/login_binding.dart';
 import 'package:kayle/UI/Screens/LoginSection/login_screen.dart';
+import 'package:kayle/UI/Screens/MainSection/main_binding.dart';
+import 'package:kayle/UI/Screens/MainSection/main_screen.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/onboarding_binding.dart';
 import 'package:kayle/UI/Screens/OnBoardiningSection/onboarding_screen.dart';
+import 'package:kayle/UI/Screens/ProductDetailsSection/SubScreen/add_review_screen.dart';
+import 'package:kayle/UI/Screens/ProductDetailsSection/SubScreen/description_screen.dart';
+import 'package:kayle/UI/Screens/ProductDetailsSection/SubScreen/review_screen.dart';
+import 'package:kayle/UI/Screens/ProductDetailsSection/product_details_binding.dart';
+import 'package:kayle/UI/Screens/ProductDetailsSection/product_details_screen.dart';
 import 'package:kayle/UI/Screens/ProfileSection/profile_binding.dart';
 import 'package:kayle/UI/Screens/ProfileSection/profile_screen.dart';
 import 'package:kayle/UI/Screens/QrSection/qr_binding.dart';
@@ -70,8 +81,23 @@ class AppPages {
       binding: LoginBinding(),
     ),
     GetPage(
+      name: RoutesConstants.mainScreen,
+      page: () => const MainScreen(),
+      binding: MainBinding(),
+    ),
+    GetPage(
       name: RoutesConstants.cartScreen,
       page: () => const CartScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.proceedToCheckoutScreen,
+      page: () => const ProceedToCheckoutScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.checkoutScreen,
+      page: () => const CheckoutScreen(),
       binding: CartBinding(),
     ),
     GetPage(
@@ -86,8 +112,33 @@ class AppPages {
     ),
     GetPage(
       name: RoutesConstants.qrScreen,
-      page: () => QrScreen(),
+      page: () => const QrScreen(),
       binding: QrBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.productDetailsScreen,
+      page: () => const ProductDetailsScreen(),
+      binding: ProductDetailsBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.productDescriptionScreen,
+      page: () => const ProductDescriptionScreen(),
+      binding: ProductDetailsBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.productReviewScreen,
+      page: () => const ProductReviewScreen(),
+      binding: ProductDetailsBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.addReviewScreen,
+      page: () => const AddReviewScreen(),
+      binding: ProductDetailsBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.notificationScreen,
+      page: () => const NotificationScreen(),
+      binding: HomeBinding(),
     ),
   ];
 }

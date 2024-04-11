@@ -21,7 +21,7 @@ class ForgotPasswordTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
         init: LoginController(),
-        id: KeyConstant.forgotPasswordTwoKey,
+        id: ControllerId.forgotPasswordTwoKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,
@@ -97,7 +97,7 @@ class ForgotPasswordTwo extends StatelessWidget {
                             controller.countryCode.value =
                                 "${phone.countryCode} ${phone.number}";
                             controller
-                                .update([KeyConstant.forgotPasswordTwoKey]);
+                                .update([ControllerId.forgotPasswordTwoKey]);
                           },
                         ),
                         const SizedBox(height: 18),

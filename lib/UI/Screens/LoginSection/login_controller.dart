@@ -28,17 +28,17 @@ class LoginController extends GetxController {
         enableResend = false;
         timer.cancel();
       }
-      update([KeyConstant.verifyOtpKey]);
+      update([ControllerId.verifyOtpKey]);
     });
   }
 
   void resetTimer(BuildContext context) {
     FocusScope.of(context).unfocus();
     txtConfirmEmailOtp.value.clear();
-    update([KeyConstant.verifyOtpKey]);
+    update([ControllerId.verifyOtpKey]);
     secondsRemaining = 30;
     enableResend = true;
-    update([KeyConstant.verifyOtpKey]);
+    update([ControllerId.verifyOtpKey]);
     startTimer();
   }
 }

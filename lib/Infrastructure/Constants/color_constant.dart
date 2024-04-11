@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorConstants {
+  static const Color transparent = Colors.transparent;
   static const Color whiteBg = Color(0xFFFFFDF6);
   static const Color blackBg = Color(0xFF0f0f0f);
   static const Color white = Colors.white;
@@ -9,9 +10,12 @@ class ColorConstants {
   static const Color blackSecondary = Color(0xFFBDBDBD);
   static const Color whiteSecondary = Color(0xFF717171);
   static const Color commonYellow = Color(0xFFF3D743);
+  static const Color lightYellow = Color(0xFFFFF8DD);
   static const Color commonPurple = Color(0xFF8F6ED4);
   static const Color whiteF9f8 = Color(0xFFfaf6ec);
   static const Color whiteF5e = Color(0xFFf5ebc3);
+  static const Color green = Color(0xFF3CEB8A);
+  static const Color red = Color(0xFFEB001B);
 
 // static const Color yellow43 = Color(0xffF3D743);
 // static const Color blackText = Color(0xFF0E0E0E);
@@ -29,29 +33,24 @@ class ColorConstants {
 }
 
 class ThemeColors {
-  static Color primary(BuildContext context) =>
-      Theme.of(context).colorScheme.primary;
+  static Color primary(BuildContext context) => Theme.of(context).colorScheme.primary;
 
-  static Color secondary(BuildContext context) =>
-      Theme.of(context).colorScheme.secondary;
+  static Color secondary(BuildContext context) => Theme.of(context).colorScheme.secondary;
 
-  static Color background(BuildContext context) =>
-      Theme.of(context).colorScheme.background;
+  static Color background(BuildContext context) => Theme.of(context).colorScheme.background;
 
-  static Color onSecondary(BuildContext context) =>
-      Theme.of(context).colorScheme.onSecondary;
+  static Color onSecondary(BuildContext context) => Theme.of(context).colorScheme.onSecondary;
 
-  static Color onBackground(BuildContext context) =>
-      Theme.of(context).colorScheme.onBackground;
+  static Color onBackground(BuildContext context) => Theme.of(context).colorScheme.onBackground;
+  static Color primaryText(BuildContext context) => Theme.of(context).colorScheme.onBackground;
   static Color buttonActive = ColorConstants.commonYellow;
   static Color buttonText = ColorConstants.black;
 
-  static Color inversePrimary(BuildContext context) =>
-      Theme.of(context).colorScheme.inversePrimary;
+  static Color inversePrimary(BuildContext context) => Theme.of(context).colorScheme.inversePrimary;
 
-  static Color inverseSurface(BuildContext context) =>
-      Theme.of(context).colorScheme.inverseSurface;
+  static Color inverseSurface(BuildContext context) => Theme.of(context).colorScheme.inverseSurface;
 
-  static Color shadow(BuildContext context) =>
-      Theme.of(context).colorScheme.shadow;
+  static Color shadow(BuildContext context) => Theme.of(context).colorScheme.shadow;
+
+  static Color border(BuildContext context) => Theme.of(context).colorScheme.onPrimaryContainer;
 }

@@ -107,4 +107,16 @@ class SharedPreferenceService {
     await _preferences!
         .setBool(StorageConstants.translateToDeviceLanguage, lng);
   }
+
+  // Logged In
+  static Future<void> saveLoggedIn(bool isLoggedIn) async {
+    await getInstance();
+    await _preferences!.setBool(StorageConstants.isLoggedIn, isLoggedIn);
+  }
+
+  static Future<bool> get getLoggedIn async {
+    await getInstance();
+    return _preferences!.getBool(StorageConstants.isLoggedIn) ?? false;
+  }
+
 }

@@ -23,7 +23,7 @@ class SetupProfileScreen extends GetView<CreateAccountController> {
   Widget build(BuildContext context) {
     return GetBuilder<CreateAccountController>(
         init: CreateAccountController(),
-        id: KeyConstant.setUpAccountKey,
+        id: ControllerId.setUpAccountKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,
@@ -115,7 +115,7 @@ class SetupProfileScreen extends GetView<CreateAccountController> {
                                                 final XFile? image = await picker.pickImage(source: ImageSource.gallery);
                                                 if (image != null) {
                                                   controller.selectedImage = image;
-                                                  controller.update([KeyConstant.setUpAccountKey]);
+                                                  controller.update([ControllerId.setUpAccountKey]);
                                                 }
                                               },
                                               child: Container(

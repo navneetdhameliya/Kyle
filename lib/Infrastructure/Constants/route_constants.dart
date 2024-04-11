@@ -9,8 +9,16 @@ class RoutesConstants {
   static const String verifyOtpScreen = "/verifyOtpScreen";
   static const String setNewPasswordScreen = "/setNewPasswordScreen";
 
+  static const String mainScreen = "/mainScreen";
   static const String cartScreen = "/cartScreen";
   static const String wishListScreen = "/wishListScreen";
   static const String profileScreen = "/profileScreen";
   static const String qrScreen = "/qrScreen";
+  static const String notificationScreen = "/notificationScreen";
+  static const String productDetailsScreen = "/productDetailsScreen";
+  static const String productDescriptionScreen = "/productDescriptionScreen";
+  static const String productReviewScreen = "/productReviewScreen";
+  static const String addReviewScreen = "/addReviewScreen";
+  static const String proceedToCheckoutScreen = "/proceedToCheckoutScreen";
+  static const String checkoutScreen = "/checkoutScreen";
 }

@@ -25,7 +25,7 @@ class CreateAccountController extends GetxController {
     if (picked != null && picked != selectedDate) {
       selectedDate = picked;
       txtDateOfBirth.value.text = DateFormat('dd/MM/yyyy').format(selectedDate);
-      update([KeyConstant.setUpAccountKey]);
+      update([ControllerId.setUpAccountKey]);
     }
   }
 }

@@ -22,7 +22,7 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
   Widget build(BuildContext context) {
     return GetBuilder<CreateAccountController>(
         init: CreateAccountController(),
-        id: KeyConstant.createAccountKey,
+        id: ControllerId.createAccountKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,
@@ -104,7 +104,7 @@ class CreateAccountScreen extends GetView<CreateAccountController> {
                                 controller.selectedRadio.value =
                                     !controller.selectedRadio.value;
                                 controller
-                                    .update([KeyConstant.createAccountKey]);
+                                    .update([ControllerId.createAccountKey]);
                               },
                               child: Container(
                                 height: 16,

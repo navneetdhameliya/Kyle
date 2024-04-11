@@ -15,7 +15,7 @@ class SplashScreen extends GetView<SplashController> {
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
         init: SplashController(),
-        id: KeyConstant.splashKey,
+        id: ControllerId.splashKey,
         builder: (controller) {
           return Scaffold(
             backgroundColor: ThemeColors.background(context),

@@ -23,6 +23,15 @@ class ImageConstants {
   static String menPng = "assets/image/men.png";
   static String linesPng = "assets/image/lines.png";
   static String summerCollectionPng = "assets/image/summer_collection.png";
+  static String suggestionPng = "assets/image/suggestion.png";
+  static String profileScreenBg = "assets/image/profile_screen_bg.png";
+  static String descriptionVideoImg = "assets/image/description_video.png";
+  static String description1Img = "assets/image/description_1.png";
+  static String description2Img = "assets/image/description_2.png";
+  static String description3Img = "assets/image/description_3.png";
+  static String description4Img = "assets/image/description_4.png";
+  static String description5Img = "assets/image/description_5.png";
+  static String unfilledStarImg = "assets/image/unfilled_star.png";
 
   //svgs
   static String whiteLogo = "assets/svgs/white_logo.svg";
@@ -54,4 +63,16 @@ class ImageConstants {
   static String scanIcon = "assets/svgs/scan_icon.svg";
   static String walletIcon = "assets/svgs/wallet_icon.svg";
   static String discountIcon = "assets/svgs/discount_icon.svg";
+  static String starIcon = "assets/svgs/filled_star.svg";
+  static String minusIcon = "assets/svgs/minus.svg";
+  static String addIcon = "assets/svgs/add.svg";
+  static String infoIcon = "assets/svgs/info.svg";
+  static String messagesIcon = "assets/svgs/messages.svg";
+  static String iosForwardIcon = "assets/svgs/ios_forward.svg";
+  static String cartIcon = "assets/svgs/cart.svg";
+  static String deleteIcon = "assets/svgs/delete.svg";
+  static String playIcon = "assets/svgs/play.svg";
+  static String filterIcon = "assets/svgs/filter.svg";
+  static String noCartItemIcon = "assets/svgs/no_cart_item.svg";
+  static String voucherIcon = "assets/svgs/voucher.svg";
 }

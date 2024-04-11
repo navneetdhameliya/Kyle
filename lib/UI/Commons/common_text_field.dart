@@ -25,6 +25,7 @@ commonTextField(
     TextInputAction? textInputAction,
     int maxLine = 1,
     int minLine = 1,
+    double? borderRadius,
     TextAlignVertical? textAlignVertical = TextAlignVertical.center,
     TextStyle? textStyle,
     EdgeInsetsGeometry? padding,
@@ -81,14 +82,14 @@ commonTextField(
               color: Colors.redAccent),
           focusedBorder: showBorder
               ? (showOnFocusBorder
-                  ? enabledBorder(context)
-                  : customBorder(context))
+                  ? enabledBorder(context,borderRadius: borderRadius)
+                  : customBorder(context,borderRadius: borderRadius))
               : InputBorder.none,
           enabledBorder:
-              showBorder ? (customBorder(context)) : InputBorder.none,
+              showBorder ? (customBorder(context,borderRadius: borderRadius)) : InputBorder.none,
           disabledBorder:
-              showBorder ? (customBorder(context)) : InputBorder.none,
-          border: showBorder ? customBorder(context) : InputBorder.none,
+              showBorder ? (customBorder(context,borderRadius: borderRadius)) : InputBorder.none,
+          border: showBorder ? customBorder(context,borderRadius: borderRadius) : InputBorder.none,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           hintText: hint,
@@ -102,12 +103,12 @@ commonTextField(
   );
 }
 
-customBorder(BuildContext context) {
+customBorder(BuildContext context,{double? borderRadius}) {
   return OutlineInputBorder(
-      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(25));
+      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(borderRadius ?? 25));
 }
 
-enabledBorder(BuildContext context) {
+enabledBorder(BuildContext context,{double? borderRadius}) {
   return OutlineInputBorder(
-      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(12));
+      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(borderRadius ?? 12));
 }

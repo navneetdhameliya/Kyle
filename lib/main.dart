@@ -4,6 +4,7 @@ import 'package:kayle/Infrastructure/Constants/app_pages.dart';
 import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/Infrastructure/Constants/theme_constant.dart';
 import 'package:kayle/Infrastructure/Language/translation_services.dart';
+import 'package:kayle/UI/Screens/SplashSection/splash_binding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences? preferences;
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ConstantTheme.darkTheme,
       theme: ConstantTheme.lightTheme,
       locale: TranslationService.locale,
+      initialBinding: SplashBinding(),
       fallbackLocale: TranslationService.fallbackLocale,
       translations: TranslationService(),
     );

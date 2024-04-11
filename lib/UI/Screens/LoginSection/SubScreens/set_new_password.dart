@@ -20,7 +20,7 @@ class SetNewPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
         init: LoginController(),
-        id: KeyConstant.setNewPasswordKey,
+        id: ControllerId.setNewPasswordKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,

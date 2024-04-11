@@ -29,7 +29,7 @@ class ConstantTheme {
         // surface: ColorConstants.greyLight, //surfaceAlt
         // onPrimary: ColorConstants.grey, //iconPrimary
         // primaryContainer: ColorConstants.whiteSecondary, //iconInActive
-        // onPrimaryContainer: ColorConstants.grey4, //border
+        onPrimaryContainer: const Color(0xFFE4E4E4), //border
       ),
       dialogTheme: const DialogTheme(
         backgroundColor: ColorConstants.blackBg,
@@ -72,7 +72,7 @@ class ConstantTheme {
         // surface: ColorConstants.blackAlt, //surfaceAlt
         // onPrimary: ColorConstants.white, //iconPrimary
         // primaryContainer: ColorConstants.white, //iconInActive
-        // onPrimaryContainer: ColorConstants.greyAlt, //border
+        onPrimaryContainer: const Color(0xFF717171), //border
       ),
       dialogTheme: const DialogTheme(
         backgroundColor: ColorConstants.whiteBg,

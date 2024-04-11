@@ -19,8 +19,8 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OnBoardingController>(
+        id: ControllerId.onboardingKey,
         init: OnBoardingController(),
-        key: KeyConstant.onboardingKey,
         builder: (controller) {
           return Scaffold(
             backgroundColor: ThemeColors.background(context),
@@ -68,7 +68,7 @@ class OnBoardingScreen extends GetView<OnBoardingController> {
                         } else {
                           controller.initialIndex.value =
                               controller.initialIndex.value + 1;
-                          controller.update([KeyConstant.onboardingKey]);
+                          controller.update([ControllerId.onboardingKey]);
                           controller.introController.value.animateToPage(
                               controller.initialIndex.value,
                               duration: const Duration(milliseconds: 600),

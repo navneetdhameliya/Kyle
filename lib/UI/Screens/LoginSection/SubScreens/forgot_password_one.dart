@@ -21,7 +21,7 @@ class ForgotPasswordOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
         init: LoginController(),
-        id: KeyConstant.forgotPasswordKey,
+        id: ControllerId.forgotPasswordKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,

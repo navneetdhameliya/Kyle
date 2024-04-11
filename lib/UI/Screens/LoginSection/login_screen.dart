@@ -7,6 +7,7 @@ import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
 import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/Infrastructure/Constants/text_style_constant.dart';
+import 'package:kayle/Infrastructure/Services/prefrence_services.dart';
 import 'package:kayle/UI/Commons/common_button.dart';
 import 'package:kayle/UI/Commons/common_inkwell.dart';
 import 'package:kayle/UI/Commons/common_text_field.dart';
@@ -21,7 +22,7 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(
         init: LoginController(),
-        id: KeyConstant.loginKey,
+        id: ControllerId.loginKey,
         builder: (controller) {
           return Scaffold(
             resizeToAvoidBottomInset: false,
@@ -87,8 +88,7 @@ class LoginScreen extends GetView<LoginController> {
                               child: CommonButton(
                                 title: AppConstants.signUp.tr,
                                 onTap: () {
-                                  Get.toNamed(
-                                      RoutesConstants.createAccountScreen);
+                                  Get.toNamed(RoutesConstants.createAccountScreen);
                                 },
                               ),
                             ),
@@ -98,7 +98,10 @@ class LoginScreen extends GetView<LoginController> {
                                 buttonColor: ColorConstants.commonYellow,
                                 titleColor: ColorConstants.blackBg,
                                 title: AppConstants.sigIn.tr,
-                                onTap: () {},
+                                onTap: () async{
+                                  await SharedPreferenceService.saveLoggedIn(true);
+                                  Get.toNamed(RoutesConstants.mainScreen);
+                                },
                               ),
                             ),
                           ],

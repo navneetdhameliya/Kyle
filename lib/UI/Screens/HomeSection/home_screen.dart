@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/app_constants.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
@@ -7,9 +6,10 @@ import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
-import 'package:kayle/UI/Screens/HomeSection/SubScreen/notification_screen.dart';
 import 'package:kayle/UI/Screens/HomeSection/home_controller.dart';
 import 'package:kayle/UI/Screens/HomeSection/widget/filter_tab.dart';
+import 'package:kayle/UI/Screens/HomeSection/widget/product_card.dart';
+import 'package:kayle/UI/Screens/MainSection/widget/common_main_appbar.dart';
 
 class HomeScreen extends GetView<HomeController> {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,207 +18,169 @@ class HomeScreen extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
         init: HomeController(),
-        id: KeyConstant.homeKey,
+        id: ControllerId.homeKey,
         builder: (controller) {
           return Scaffold(
             backgroundColor: ThemeColors.background(context),
+            appBar: AppBar(
+              toolbarHeight: 0,
+              scrolledUnderElevation: 0,
+              backgroundColor: ThemeColors.background(context),
+            ),
             body: SizedBox(
               height: MediaQuery.sizeOf(context).height,
               width: MediaQuery.sizeOf(context).width,
-              child: ListView(
+              child: Column(
                 children: [
-                  appBar(context),
-                  const SizedBox(
-                    height: 24,
-                  ),
+                  const CommonMainAppBar(),
+                  const SizedBox(height: 24),
 
-                  /// Summer Collection
-                  Container(
-                    width: double.infinity,
-                    height: 156,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage(ImageConstants.summerCollectionPng),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  Expanded(
+                    child: ListView(
                       children: [
+                        /// Summer Collection
                         Container(
+                          width: double.infinity,
+                          height: 156,
                           decoration: BoxDecoration(
-                            color: ThemeColors.buttonActive,
                             borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage(ImageConstants.summerCollectionPng),
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 2),
-                          child: HeadlineBodyOneBaseWidget(
-                            title: AppConstants.fashionStore.tr,
-                            fontSize: 8,
-                            fontFamily: FontConstant.blinkerRegular,
-                            titleColor: Colors.black,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: ThemeColors.buttonActive,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 2),
+                                child: HeadlineBodyOneBaseWidget(
+                                  title: AppConstants.fashionStore.tr,
+                                  fontSize: 8,
+                                  fontFamily: FontConstant.blinkerRegular,
+                                  titleColor: Colors.black,
+                                ),
+                              ),
+                              HeadlineBodyOneBaseWidget(
+                                title: AppConstants.summerCollection.tr,
+                                fontSize: 30,
+                                titleColor: ColorConstants.white,
+                                fontFamily: FontConstant.blinkerBold,
+                              ),
+                            ],
                           ),
                         ),
-                        HeadlineBodyOneBaseWidget(
-                          title: AppConstants.summerCollection.tr,
-                          fontSize: 30,
-                          titleColor: ColorConstants.white,
-                          fontFamily: FontConstant.blinkerBold,
+                        const SizedBox(height: 8),
+
+                        /// pending offers and discount code
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 115,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: ThemeColors.buttonActive,
+                                  image: DecorationImage(
+                                    image: AssetImage(ImageConstants.linesPng),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                padding: const EdgeInsets.all(12),
+                                child: Stack(
+                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  // mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: HeadlineBodyOneBaseWidget(
+                                        title: AppConstants.discountCode.tr,
+                                        fontSize: 14,
+                                        titleColor: ColorConstants.white,
+                                        fontFamily: FontConstant.blinkerBold,
+                                      ),
+                                    ),
+                                    const Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: HeadlineBodyOneBaseWidget(
+                                        title: '54',
+                                        fontSize: 50,
+                                        titleColor: ColorConstants.white,
+                                        fontFamily: FontConstant.blinkerExtraLight,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 115,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.black,
+                                  image: DecorationImage(
+                                    image: AssetImage(ImageConstants.linesPng),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                padding: const EdgeInsets.all(12),
+                                child: Stack(
+                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  // mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: HeadlineBodyOneBaseWidget(
+                                        title: AppConstants.pendingOffers.tr,
+                                        fontSize: 14,
+                                        titleColor: ColorConstants.white,
+                                        fontFamily: FontConstant.blinkerBold,
+                                      ),
+                                    ),
+                                    const Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: HeadlineBodyOneBaseWidget(
+                                        title: '121',
+                                        fontSize: 50,
+                                        titleColor: ColorConstants.white,
+                                        fontFamily: FontConstant.blinkerExtraLight,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
+
+                        /// new arrival and best seller
+                        const SizedBox(height: 24),
+                        newArrival(),
+                        const SizedBox(height: 42),
+                        suggestions(),
+                        const SizedBox(height: 40),
+                        featuredProduct(context),
+                        const SizedBox(height: 46),
+                        brandsData(context),
+                        const SizedBox(height: 24),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-
-                  /// pending offers and discount code
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 115,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: ThemeColors.buttonActive,
-                            image: DecorationImage(
-                              image: AssetImage(ImageConstants.linesPng),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          padding: const EdgeInsets.all(12),
-                          child: Stack(
-                            // crossAxisAlignment: CrossAxisAlignment.center,
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: HeadlineBodyOneBaseWidget(
-                                  title: AppConstants.discountCode.tr,
-                                  fontSize: 14,
-                                  titleColor: ColorConstants.white,
-                                  fontFamily: FontConstant.blinkerBold,
-                                ),
-                              ),
-                              const Align(
-                                alignment: Alignment.bottomRight,
-                                child: HeadlineBodyOneBaseWidget(
-                                  title: '54',
-                                  fontSize: 50,
-                                  titleColor: ColorConstants.white,
-                                  fontFamily: FontConstant.blinkerExtraLight,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 115,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage(ImageConstants.linesPng),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          padding: const EdgeInsets.all(12),
-                          child: Stack(
-                            // crossAxisAlignment: CrossAxisAlignment.center,
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: HeadlineBodyOneBaseWidget(
-                                  title: AppConstants.pendingOffers.tr,
-                                  fontSize: 14,
-                                  titleColor: ColorConstants.white,
-                                  fontFamily: FontConstant.blinkerBold,
-                                ),
-                              ),
-                              const Align(
-                                alignment: Alignment.bottomRight,
-                                child: HeadlineBodyOneBaseWidget(
-                                  title: '121',
-                                  fontSize: 50,
-                                  titleColor: ColorConstants.white,
-                                  fontFamily: FontConstant.blinkerExtraLight,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  /// new arrival and best seller
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  newArrival(),
-                  const SizedBox(
-                    height: 42,
-                  ),
-                  suggestions(),
-                  const SizedBox(
-                    height: 42,
-                  ),
-                  featuredProduct(context),
-                  const SizedBox(
-                    height: 46,
-                  ),
-                  brandsData(context),
-                  const SizedBox(
-                    height: 24,
-                  ),
+                  )
                 ],
               ).paddingSymmetric(horizontal: 24, vertical: 24),
             ),
           );
-        });
-  }
-
-  Widget appBar(context) {
-    return Row(
-      children: [
-        SizedBox(
-            height: 36,
-            width: 36,
-            child: Image.asset(ImageConstants.coloredLogoPng)),
-        const Spacer(),
-        Row(
-          children: [
-            SvgPicture.asset(
-              ImageConstants.searchIcon,
-              width: 24,
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                  ThemeColors.primary(context), BlendMode.srcIn),
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            GestureDetector(
-              onTap: () => Get.to(const NotificationScreen()),
-              child: SvgPicture.asset(
-                ImageConstants.notificationIcon,
-                width: 24,
-                height: 24,
-                colorFilter: ColorFilter.mode(
-                    ThemeColors.primary(context), BlendMode.srcIn),
-              ),
-            ),
-          ],
-        ),
-      ],
+        },
     );
   }
 
@@ -252,7 +214,7 @@ class HomeScreen extends GetView<HomeController> {
           overlayColor: MaterialStateProperty.all(Colors.transparent),
           onTap: (index) {
             controller.arrivalTabIndex.value = index;
-            controller.update([KeyConstant.homeKey]);
+            controller.update([ControllerId.homeKey]);
             // controller.arrivalTabPageController.animateToPage(
             //     index,
             //     duration: const Duration(milliseconds: 500),
@@ -262,192 +224,25 @@ class HomeScreen extends GetView<HomeController> {
         const SizedBox(
           height: 24,
         ),
-        controller.arrivalTabIndex.value == 0
-            ? GridView.builder(
-                itemCount: 4,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
-                    childAspectRatio: 4 / 5),
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(12)),
-                                image: DecorationImage(
-                                    image: AssetImage(ImageConstants.menPng),
-                                    fit: BoxFit.cover),
-                              ),
-                              padding: const EdgeInsets.all(10),
-                              alignment: Alignment.topRight,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: ThemeColors.background(context),
-                                ),
-                                padding: const EdgeInsets.all(4),
-                                child: SvgPicture.asset(
-                                  ImageConstants.saveMarkIcon,
-                                  height: 20,
-                                  width: 20,
-                                  colorFilter: ColorFilter.mode(
-                                      ThemeColors.primary(context),
-                                      BlendMode.srcIn),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.vertical(
-                                    bottom: Radius.circular(12)),
-                                color: ThemeColors.background(context),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: ThemeColors.shadow(context)
-                                          .withOpacity(.2),
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 6)),
-                                ],
-                              ),
-                              padding: const EdgeInsets.all(10),
-                              alignment: Alignment.center,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  HeadlineBodyOneBaseWidget(
-                                    title: AppConstants.fashion.tr,
-                                    titleColor:
-                                        ThemeColors.onSecondary(context),
-                                  ),
-                                  const HeadlineBodyOneBaseWidget(
-                                    title: "Linen slim-fit t-shirt",
-                                    fontSize: 12,
-                                    fontFamily: FontConstant.blinkerRegular,
-                                  ),
-                                  const HeadlineBodyOneBaseWidget(
-                                    title: "\$ 40.00",
-                                    fontSize: 12,
-                                    fontFamily: FontConstant.blinkerRegular,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              )
-            : GridView.builder(
-                itemCount: 4,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
-                    childAspectRatio: 4 / 5),
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(12)),
-                                image: DecorationImage(
-                                    image: AssetImage(ImageConstants.womenPng),
-                                    fit: BoxFit.cover),
-                              ),
-                              padding: const EdgeInsets.all(10),
-                              alignment: Alignment.topRight,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: ThemeColors.background(context),
-                                ),
-                                padding: const EdgeInsets.all(4),
-                                child: SvgPicture.asset(
-                                  ImageConstants.saveMarkIcon,
-                                  height: 20,
-                                  width: 20,
-                                  colorFilter: ColorFilter.mode(
-                                      ThemeColors.primary(context),
-                                      BlendMode.srcIn),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.vertical(
-                                      bottom: Radius.circular(12)),
-                                  color: ThemeColors.background(context),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: ThemeColors.shadow(context)
-                                            .withOpacity(.2),
-                                        blurRadius: 10,
-                                        offset: const Offset(0, 6)),
-                                  ]),
-                              padding: const EdgeInsets.all(10),
-                              alignment: Alignment.center,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  HeadlineBodyOneBaseWidget(
-                                    title: "Fashion",
-                                    titleColor:
-                                        ThemeColors.onSecondary(context),
-                                  ),
-                                  const HeadlineBodyOneBaseWidget(
-                                    title: "Linen slim-fit t-shirt",
-                                    fontSize: 12,
-                                    fontFamily: FontConstant.blinkerRegular,
-                                  ),
-                                  const HeadlineBodyOneBaseWidget(
-                                    title: "\$ 40.00",
-                                    fontSize: 12,
-                                    fontFamily: FontConstant.blinkerRegular,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+        GridView.builder(
+          itemCount: 4,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 15,
+              mainAxisExtent: 200,
+          ),
+          itemBuilder: (context, index) {
+            return ProductCard(
+                image: index % 4 == 0 || index % 4 == 3
+                    ? controller.arrivalTabIndex.value == 0 ? ImageConstants.menPng : ImageConstants.womenPng
+                    : controller.arrivalTabIndex.value == 0 ? ImageConstants.womenPng : ImageConstants.menPng,
+            );
+          },
+        ),
       ],
     );
   }
@@ -457,7 +252,7 @@ class HomeScreen extends GetView<HomeController> {
       width: double.infinity,
       height: 260,
       child: ListView.builder(
-        itemCount: 4,
+        itemCount: 2,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
@@ -468,11 +263,25 @@ class HomeScreen extends GetView<HomeController> {
               height: 260,
               width: 210,
               margin: const EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.all(15),
+              alignment: Alignment.bottomLeft,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
-                    image: AssetImage(ImageConstants.menPng),
+                    image: AssetImage(ImageConstants.suggestionPng),
                     fit: BoxFit.cover),
+              ),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: 80
+                ),
+                child: const HeadlineBodyOneBaseWidget(
+                  title: "Be Sunday Comfy",
+                  fontSize: 20,
+                  height: 1,
+                  fontFamily: FontConstant.blinkerBold,
+                  titleColor: ColorConstants.white,
+                ),
               ),
             ),
           );
@@ -484,6 +293,13 @@ class HomeScreen extends GetView<HomeController> {
   Widget featuredProduct(context) {
     return Column(
       children: [
+        HeadlineBodyOneBaseWidget(
+          title: "Featured Product",
+          fontSize: 24,
+          fontFamily: FontConstant.blinkerRegular,
+          titleColor: ThemeColors.primary(context),
+        ),
+        const SizedBox(height: 16),
         Container(
           height: 48,
           margin: const EdgeInsets.symmetric(vertical: 8),
@@ -523,85 +339,9 @@ class HomeScreen extends GetView<HomeController> {
               crossAxisCount: 2,
               mainAxisSpacing: 15,
               crossAxisSpacing: 15,
-              childAspectRatio: 4 / 5),
+            mainAxisExtent: 200,),
           itemBuilder: (context, index) {
-            return InkWell(
-              child: Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(12)),
-                          image: DecorationImage(
-                              image: AssetImage(ImageConstants.womenPng),
-                              fit: BoxFit.cover),
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ThemeColors.background(context),
-                          ),
-                          padding: const EdgeInsets.all(4),
-                          child: SvgPicture.asset(
-                            ImageConstants.saveMarkIcon,
-                            height: 20,
-                            width: 20,
-                            colorFilter: ColorFilter.mode(
-                                ThemeColors.primary(context), BlendMode.srcIn),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.vertical(
-                                bottom: Radius.circular(12)),
-                            color: ThemeColors.background(context),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: ThemeColors.shadow(context)
-                                      .withOpacity(.2),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 6)),
-                            ]),
-                        padding: const EdgeInsets.all(10),
-                        alignment: Alignment.center,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            HeadlineBodyOneBaseWidget(
-                              title: "Fashion",
-                              titleColor: ThemeColors.onSecondary(context),
-                            ),
-                            const HeadlineBodyOneBaseWidget(
-                              title: "Linen slim-fit t-shirt",
-                              fontSize: 12,
-                              fontFamily: FontConstant.blinkerRegular,
-                            ),
-                            const HeadlineBodyOneBaseWidget(
-                              title: "\$ 40.00",
-                              fontSize: 12,
-                              fontFamily: FontConstant.blinkerRegular,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return ProductCard(image: index % 4 == 0 || index % 4 == 3 ? ImageConstants.menPng : ImageConstants.womenPng);
           },
         ),
         const SizedBox(
@@ -636,11 +376,9 @@ class HomeScreen extends GetView<HomeController> {
           fontFamily: FontConstant.blinkerRegular,
           titleColor: ThemeColors.primary(context),
         ),
-        const SizedBox(
-          height: 24,
-        ),
+        const SizedBox(height: 24),
         GridView.builder(
-          itemCount: 6,
+          itemCount: controller.bandImages.length,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -664,12 +402,7 @@ class HomeScreen extends GetView<HomeController> {
                     ),
                   ],
                 ),
-                child: HeadlineBodyOneBaseWidget(
-                  title: 'Brand',
-                  fontSize: 24,
-                  fontFamily: FontConstant.blinkerRegular,
-                  titleColor: ThemeColors.primary(context),
-                ),
+                child: Image.network(controller.bandImages[index],height: 60,width: 60,),
               ),
             );
           },

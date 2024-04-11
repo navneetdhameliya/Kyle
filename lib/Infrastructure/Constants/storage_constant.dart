@@ -4,4 +4,5 @@ class StorageConstants {
       "storage_translate_device_language";
   static const String translateToLanguage = "storage_translate_to_language";
   static const String deviceLanguage = "storage_device_language";
+  static const String isLoggedIn = "storage_is_logged_in";
 }

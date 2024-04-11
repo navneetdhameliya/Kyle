@@ -74,7 +74,7 @@ class CommonButton extends StatelessWidget {
                       colorFilter:
                           ColorFilter.mode(iconColor!, BlendMode.srcIn),
                     ),
-                    const SizedBox(width: 13),
+                    const SizedBox(width: 6),
                   ],
                   FittedBox(
                     fit: BoxFit.scaleDown,

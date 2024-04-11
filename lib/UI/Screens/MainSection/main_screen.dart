@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
@@ -21,110 +22,114 @@ class MainScreen extends GetView<MainController> {
   Widget build(BuildContext context) {
     return GetBuilder<MainController>(
         init: MainController(),
-        id: KeyConstant.loginKey,
+        id: ControllerId.loginKey,
         builder: (controller) {
-          return Scaffold(
-            backgroundColor: ThemeColors.background(context),
-            body: PageView(
-              physics: const NeverScrollableScrollPhysics(),
-              onPageChanged: (value) => controller.currentPage.value = value,
-              controller: controller.pageController,
-              children: [
-                const CommonWrapper(
-                  child: HomeScreen(),
-                ),
-                const CommonWrapper(
-                  child: CartScreen(),
-                ),
-                CommonWrapper(
-                  child: Container(
-                    color: Colors.white,
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+            value: SystemUiOverlayStyle.light
+                .copyWith(systemNavigationBarColor: ThemeColors.inversePrimary(context)),
+            child: Scaffold(
+              backgroundColor: ThemeColors.background(context),
+              body: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                onPageChanged: (value) => controller.currentPage.value = value,
+                controller: controller.pageController,
+                children: [
+                  const CommonWrapper(
+                    child: HomeScreen(),
                   ),
-                ),
-                const CommonWrapper(
-                  child: WishListScreen(),
-                ),
-                const CommonWrapper(
-                  child: ProfileScreen(),
-                ),
-              ],
-            ),
-            extendBody: true,
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar: Container(
-              decoration: BoxDecoration(
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: ThemeColors.shadow(context).withOpacity(.3),
-                    blurRadius: 30,
+                  const CommonWrapper(
+                    child: CartScreen(),
+                  ),
+                  CommonWrapper(
+                    child: Container(
+                      color: Colors.white,
+                    ),
+                  ),
+                  const CommonWrapper(
+                    child: WishListScreen(),
+                  ),
+                  const CommonWrapper(
+                    child: ProfileScreen(),
                   ),
                 ],
               ),
-              child: CurvedNavigationBar(
-                index: 0,
-                iconPadding: 18,
-                items: [
-                  CurvedNavigationBarItem(
-                    child: SvgPicture.asset(
-                      ImageConstants.homeIcon,
-                      colorFilter: ColorFilter.mode(
-                          ThemeColors.primary(context), BlendMode.srcIn),
+              extendBody: true,
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
+              bottomNavigationBar: Container(
+                decoration: BoxDecoration(
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: ThemeColors.shadow(context).withOpacity(.3),
+                      blurRadius: 30,
                     ),
-                  ),
-                  CurvedNavigationBarItem(
-                    child: SvgPicture.asset(
-                      ImageConstants.basketIcon,
-                      colorFilter: ColorFilter.mode(
-                          ThemeColors.primary(context), BlendMode.srcIn),
+                  ],
+                ),
+                child: CurvedNavigationBar(
+                  index: 0,
+                  iconPadding: 18,
+                  items: [
+                    CurvedNavigationBarItem(
+                      child: SvgPicture.asset(
+                        ImageConstants.homeIcon,
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
+                      ),
                     ),
-                  ),
-                  CurvedNavigationBarItem(
-                    child: SvgPicture.asset(
-                      ImageConstants.scanIcon,
-                      colorFilter: ColorFilter.mode(
-                          MediaQuery.of(context).platformBrightness ==
-                                  Brightness.dark
-                              ? ColorConstants.blackBg
-                              : ColorConstants.whiteBg,
-                          BlendMode.srcIn),
+                    CurvedNavigationBarItem(
+                      child: SvgPicture.asset(
+                        ImageConstants.basketIcon,
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
+                      ),
                     ),
-                  ),
-                  CurvedNavigationBarItem(
-                    child: SvgPicture.asset(
-                      ImageConstants.saveMarkIcon,
-                      colorFilter: ColorFilter.mode(
-                          ThemeColors.primary(context), BlendMode.srcIn),
+                    CurvedNavigationBarItem(
+                      child: SvgPicture.asset(
+                        ImageConstants.scanIcon,
+                        colorFilter: ColorFilter.mode(
+                            MediaQuery.of(context).platformBrightness ==
+                                    Brightness.dark
+                                ? ColorConstants.blackBg
+                                : ColorConstants.whiteBg,
+                            BlendMode.srcIn),
+                      ),
                     ),
-                  ),
-                  CurvedNavigationBarItem(
-                    child: SvgPicture.asset(
-                      ImageConstants.personIcon,
-                      colorFilter: ColorFilter.mode(
-                          ThemeColors.primary(context), BlendMode.srcIn),
+                    CurvedNavigationBarItem(
+                      child: SvgPicture.asset(
+                        ImageConstants.saveMarkIcon,
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
+                      ),
                     ),
-                  ),
-                ],
-                color:
-                    MediaQuery.of(context).platformBrightness == Brightness.dark
-                        ? ThemeColors.inversePrimary(context)
-                        : ColorConstants.white,
-                buttonBackgroundColor:
-                    MediaQuery.of(context).platformBrightness == Brightness.dark
-                        ? ThemeColors.buttonActive
-                        : ThemeColors.primary(context),
-                backgroundColor: Colors.transparent,
-                animationCurve: Curves.easeInOut,
-                onTap: (index) {
-                  if (index == 2) {
-                    Get.to(QrScreen());
-                    return;
-                  }
-                  controller.currentPage.value = index;
-                  controller.update();
-                  controller.animateToPage(index);
-                },
-                letIndexChange: (index) => true,
+                    CurvedNavigationBarItem(
+                      child: SvgPicture.asset(
+                        ImageConstants.personIcon,
+                        colorFilter: ColorFilter.mode(
+                            ThemeColors.primary(context), BlendMode.srcIn),
+                      ),
+                    ),
+                  ],
+                  color:
+                      MediaQuery.of(context).platformBrightness == Brightness.dark
+                          ? ThemeColors.inversePrimary(context)
+                          : ColorConstants.white,
+                  buttonBackgroundColor:
+                      MediaQuery.of(context).platformBrightness == Brightness.dark
+                          ? ThemeColors.buttonActive
+                          : ThemeColors.primary(context),
+                  backgroundColor: Colors.transparent,
+                  animationCurve: Curves.easeInOut,
+                  onTap: (index) {
+                    if (index == 2) {
+                      Get.to(const QrScreen());
+                      return;
+                    }
+                    controller.currentPage.value = index;
+                    controller.update();
+                    controller.animateToPage(index);
+                  },
+                  letIndexChange: (index) => true,
+                ),
               ),
             ),
           );

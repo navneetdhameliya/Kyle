@@ -14,7 +14,7 @@ class NotificationScreen extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
         init: HomeController(),
-        id: KeyConstant.homeKey,
+        id: ControllerId.homeKey,
         builder: (controller) {
           return Scaffold(
             backgroundColor: ThemeColors.background(context),
