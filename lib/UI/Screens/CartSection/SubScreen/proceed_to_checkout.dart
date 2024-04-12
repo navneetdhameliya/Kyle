@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
+import 'package:kayle/Infrastructure/Constants/route_constants.dart';
 import 'package:kayle/UI/Screens/CartSection/cart_controller.dart';
 import 'package:kayle/UI/Screens/CartSection/widgets/cart_item_card.dart';
 import 'package:kayle/UI/Screens/CartSection/widgets/total_price_view_bottom_bar.dart';
@@ -55,7 +56,9 @@ class ProceedToCheckoutScreen extends StatelessWidget {
           ),
           bottomNavigationBar: TotalPriceViewBottomBar(
             buttonText: "Proceed To Checkout",
-            onTap: (){},
+            onTap: (){
+              Get.toNamed(RoutesConstants.checkoutScreen);
+            },
           ),
         );
       },

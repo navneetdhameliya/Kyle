@@ -271,7 +271,6 @@ class ProductDetailsScreen extends GetView<ProductDetailsController> {
                                 ),
                               );
                           Get.find<CartController>().update([ControllerId.cartKey]);
-                          print(Get.find<CartController>().cartItemDataList);
                           Get.snackbar("", "Item Added To Cart");
                         },
                         buttonColor: ColorConstants.commonYellow,

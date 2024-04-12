@@ -6,6 +6,7 @@ import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
 import 'package:kayle/UI/Commons/common_text_widget.dart';
 import 'package:kayle/UI/Screens/ProfileSection/profile_controller.dart';
+import 'package:kayle/UI/Screens/ProfileSection/widgets/settings_tile.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -30,73 +31,17 @@ class ProfileScreen extends GetView<ProfileController> {
                 const SizedBox(
                   height: 20,
                 ),
-                HeadlineBodyOneBaseWidget(
-                  title: 'Account',
-                  fontSize: 12,
-                  titleColor: ThemeColors.onSecondary(context),
-                ).paddingSymmetric(horizontal: 24, vertical: 12),
-                ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.accountItems.length,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return settingTile(
-                              context: context,
-                              index: index,
-                              title: controller.accountItems[index].name,
-                              icon: controller.accountItems[index].icon)
-                          .paddingSymmetric(horizontal: 24);
-                    }),
-                const SizedBox(
-                  height: 20,
-                ),
-                HeadlineBodyOneBaseWidget(
-                  title: 'Privacy',
-                  fontSize: 12,
-                  titleColor: ThemeColors.onSecondary(context),
-                ).paddingSymmetric(horizontal: 24, vertical: 12),
-                ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.privacyItems.length,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return settingTile(
-                              context: context,
-                              index: index,
-                              title: controller.privacyItems[index].name,
-                              icon: controller.privacyItems[index].icon)
-                          .paddingSymmetric(horizontal: 24);
-                    }),
-                const SizedBox(
-                  height: 20,
-                ),
-                HeadlineBodyOneBaseWidget(
-                  title: 'Help & Support',
-                  fontSize: 12,
-                  titleColor: ThemeColors.onSecondary(context),
-                ).paddingSymmetric(horizontal: 24, vertical: 12),
-                ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.helpItems.length,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return settingTile(
-                              context: context,
-                              index: index,
-                              title: controller.helpItems[index].name,
-                              icon: controller.helpItems[index].icon)
-                          .paddingSymmetric(horizontal: 24);
-                    }),
+                SettingsTile(title: "Account", dataList: controller.accountItems),
+                SettingsTile(title: "Privacy", dataList: controller.privacyItems),
+                SettingsTile(title: "Help & Support", dataList: controller.helpItems),
                 const SizedBox(
                   height: 65,
                 ),
               ],
             ),
           );
-        });
+        },
+    );
   }
 
   Widget appBar(context) {
@@ -277,59 +222,6 @@ class ProfileScreen extends GetView<ProfileController> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget settingTile(
-      {context,
-      required int index,
-      required String title,
-      required String icon,
-      Color iconColor = Colors.black}) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: ThemeColors.inversePrimary(context),
-        borderRadius: BorderRadius.vertical(
-            top: Radius.circular(index == 0 ? 10 : 0),
-            bottom: Radius.circular(index == 4 ? 10 : 0)),
-        boxShadow: [
-          BoxShadow(
-              color: ThemeColors.shadow(context).withOpacity(.12),
-              blurRadius: 30,
-              offset: const Offset(0, 6)),
-        ],
-      ),
-      margin: const EdgeInsets.only(bottom: 4),
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              SizedBox(
-                height: 24,
-                width: 24,
-                child: SvgPicture.asset(
-                  icon,
-                  colorFilter: ColorFilter.mode(
-                      ThemeColors.primary(context), BlendMode.srcIn),
-                ),
-              ).paddingOnly(right: 8),
-              HeadlineBodyOneBaseWidget(
-                title: title,
-                fontSize: 12,
-                titleColor: ThemeColors.primary(context),
-              ),
-            ],
-          ),
-          SvgPicture.asset(
-            ImageConstants.rightArrowIcon,
-            colorFilter:
-                ColorFilter.mode(ThemeColors.primary(context), BlendMode.srcIn),
-          ),
-        ],
-      ),
     );
   }
 }

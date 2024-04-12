@@ -1,6 +1,11 @@
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/route_constants.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/add_new_address_screen.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/add_new_card_screen.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/address_screen.dart';
 import 'package:kayle/UI/Screens/CartSection/SubScreen/checkout_screen.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/confirm_order_screen.dart';
+import 'package:kayle/UI/Screens/CartSection/SubScreen/payment_method_screen.dart';
 import 'package:kayle/UI/Screens/CartSection/SubScreen/proceed_to_checkout.dart';
 import 'package:kayle/UI/Screens/CartSection/cart_binding.dart';
 import 'package:kayle/UI/Screens/CartSection/cart_screen.dart';
@@ -98,6 +103,31 @@ class AppPages {
     GetPage(
       name: RoutesConstants.checkoutScreen,
       page: () => const CheckoutScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.paymentMethodScreen,
+      page: () => const PaymentMethodScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.addNewAddressScreen,
+      page: () => const AddNewAddressScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.addressScreen,
+      page: () => const AddressScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.addNewCardScreen,
+      page: () => const AddNewCardScreen(),
+      binding: CartBinding(),
+    ),
+    GetPage(
+      name: RoutesConstants.confirmOrderScreen,
+      page: () => const ConfirmOrderScreen(),
       binding: CartBinding(),
     ),
     GetPage(

@@ -21,4 +21,9 @@ class RoutesConstants {
   static const String addReviewScreen = "/addReviewScreen";
   static const String proceedToCheckoutScreen = "/proceedToCheckoutScreen";
   static const String checkoutScreen = "/checkoutScreen";
+  static const String paymentMethodScreen = "/paymentMethodScreen";
+  static const String addNewAddressScreen = "/addNewAddressScreen";
+  static const String addressScreen = "/addressScreen";
+  static const String addNewCardScreen = "/addNewCardScreen";
+  static const String confirmOrderScreen = "/confirmOrderScreen";
 }

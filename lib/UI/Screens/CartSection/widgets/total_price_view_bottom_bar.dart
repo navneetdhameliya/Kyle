@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kayle/Infrastructure/Constants/color_constant.dart';
+import 'package:kayle/Infrastructure/Constants/font_constant.dart';
 import 'package:kayle/Infrastructure/Constants/image_constant.dart';
 import 'package:kayle/Infrastructure/Constants/key_constant.dart';
 import 'package:kayle/UI/Commons/common_button.dart';
@@ -50,6 +49,7 @@ class TotalPriceViewBottomBar extends StatelessWidget {
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 18),
+                        color: Colors.transparent,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -65,18 +65,34 @@ class TotalPriceViewBottomBar extends StatelessWidget {
                                   ),
                                 ).paddingOnly(right: 8),
                                 HeadlineBodyOneBaseWidget(
-                                  title: "Use Voucher",
+                                  title: controller.voucherAdded.value ? "1 Voucher Used" : "Use Voucher",
                                   fontSize: 12,
                                   titleColor: ThemeColors.primary(context),
                                 ),
                               ],
                             ),
-                            SvgPicture.asset(
-                              ImageConstants.rightArrowIcon,
-                              colorFilter:
-                              ColorFilter.mode(ThemeColors.primary(context), BlendMode.srcIn),
-                            ),
-                          ],
+                            controller.voucherAdded.value
+                                  ? Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(200),
+                                          border: Border.all(color: ColorConstants.green),
+                                      ),
+                                      child: const HeadlineBodyOneBaseWidget(
+                                        title: "Discount 10%",
+                                        fontSize: 8,
+                                        fontFamily: FontConstant.blinkerRegular,
+                                        titleColor: ColorConstants.green,
+                                      ),
+                                    )
+                                  : SvgPicture.asset(
+                                      ImageConstants.rightArrowIcon,
+                                      colorFilter: ColorFilter.mode(
+                                          ThemeColors.primary(context),
+                                          BlendMode.srcIn,
+                                      ),
+                                    ),
+                            ],
                         ),
                       ),
                     ),
@@ -92,9 +108,9 @@ class TotalPriceViewBottomBar extends StatelessWidget {
                       child: Column(
                         children: [
                           TotalView(title: "Subtotal", value: controller.totalPrice.value),
-                          const TotalView(title: "Shipping", value: 15.00),
+                          TotalView(title: "Shipping", value: controller.cartItemDataList.length * 5.00),
                           if(controller.voucherAdded.value)
-                          const TotalView(title: "Voucher", value: 12.00,isVoucherAdded: true,),
+                            TotalView(title: "Voucher", value: controller.totalPrice.value * .1,isVoucherAdded: true,),
                           Container(
                             height: 1,
                             width: double.maxFinite,
@@ -103,7 +119,7 @@ class TotalPriceViewBottomBar extends StatelessWidget {
                           ),
                           TotalView(
                             title: "Total (${controller.cartItemDataList.length} items)",
-                            value: (controller.totalPrice.value + 15.00) - (controller.voucherAdded.value ? 12.00 : 0.0),
+                            value: (controller.totalPrice.value + controller.cartItemDataList.length * 5.00) - (controller.voucherAdded.value ? controller.totalPrice.value * .1 : 0.0),
                             isTotal: true,
                           ),
                           const SizedBox(height: 30),

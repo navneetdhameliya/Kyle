@@ -32,6 +32,11 @@ class ImageConstants {
   static String description4Img = "assets/image/description_4.png";
   static String description5Img = "assets/image/description_5.png";
   static String unfilledStarImg = "assets/image/unfilled_star.png";
+  static String mapImg = "assets/image/map.png";
+  static String appleImg = "assets/image/apple.png";
+  static String masterCardImg = "assets/image/master_card.png";
+  static String paypalImg = "assets/image/paypal.png";
+  static String visaImg = "assets/image/visa.png";
 
   //svgs
   static String whiteLogo = "assets/svgs/white_logo.svg";

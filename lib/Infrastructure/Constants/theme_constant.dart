@@ -26,7 +26,7 @@ class ConstantTheme {
         onBackground: ColorConstants.blackBg,
         inverseSurface: ColorConstants.whiteBg,
         shadow: const Color(0xffA69426),
-        // surface: ColorConstants.greyLight, //surfaceAlt
+        surface: ColorConstants.white, //card
         // onPrimary: ColorConstants.grey, //iconPrimary
         // primaryContainer: ColorConstants.whiteSecondary, //iconInActive
         onPrimaryContainer: const Color(0xFFE4E4E4), //border
@@ -69,7 +69,7 @@ class ConstantTheme {
         onBackground: ColorConstants.whiteBg,
         inverseSurface: ColorConstants.blackBg,
         shadow: ColorConstants.blackBg.withOpacity(.2),
-        // surface: ColorConstants.blackAlt, //surfaceAlt
+        surface: ColorConstants.black1E, //card
         // onPrimary: ColorConstants.white, //iconPrimary
         // primaryContainer: ColorConstants.white, //iconInActive
         onPrimaryContainer: const Color(0xFF717171), //border

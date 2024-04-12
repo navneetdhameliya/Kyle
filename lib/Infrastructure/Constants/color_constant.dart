@@ -4,6 +4,7 @@ class ColorConstants {
   static const Color transparent = Colors.transparent;
   static const Color whiteBg = Color(0xFFFFFDF6);
   static const Color blackBg = Color(0xFF0f0f0f);
+  static const Color black1E = Color(0xFF1E1E1E);
   static const Color white = Colors.white;
   static const Color black = Color(0xFF2D2D2D);
   static const Color black2a2a = Color(0xFF2a2a2a);
@@ -53,4 +54,6 @@ class ThemeColors {
   static Color shadow(BuildContext context) => Theme.of(context).colorScheme.shadow;
 
   static Color border(BuildContext context) => Theme.of(context).colorScheme.onPrimaryContainer;
+
+  static Color cardBgColor(BuildContext context) => Theme.of(context).colorScheme.surface;
 }
